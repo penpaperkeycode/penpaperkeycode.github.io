@@ -9,54 +9,41 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
 
 Work experience
 ======
-* NAVER Cloud
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* NAVER Cloud 
+  * 2021.12 - Present / Foundation Research, Researcher
+        * Pre-training efficiency & Transformers architecture
+        * Multi-linguality and multi-modality of large-scale Transformers
+* LG Energy Solution 
+  * 2020.11 - 2021.11 / Business Strategy, Research Scientist
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Nepes
+  * 2018.01 - 2020.10 / Researcher, Assistant Manager
+       * Alternative military service program as an researcher  
 
 Publications
 ======
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
-Talks
+
+
+Reviewing
 ======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
+**Conference **
+* International Conference on Learning Representations
+* Neural Information Processing Systems
+* International Conference on Learning Representations
+* Association for Computational Linguistics. 
+
+Education
 ======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
+* Ph.D Student in Artificial Intelligence, Korea Advanced Institute of Science and Technology (KAIST), 2027 (expected)
+
+
+
   {% endfor %}</ul>
   
 Service and leadership
