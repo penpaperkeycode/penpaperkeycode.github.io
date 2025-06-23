@@ -42,10 +42,3 @@ Education
 ======
 * Ph.D Student in Artificial Intelligence, Korea Advanced Institute of Science and Technology (KAIST), 2027 (expected)
 
-
-
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
