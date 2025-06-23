@@ -30,7 +30,6 @@ Publications
 
 Reviewing
 ======
-**Conference**
 * International Conference on Learning Representations
 * Neural Information Processing Systems
 * International Conference on Learning Representations
