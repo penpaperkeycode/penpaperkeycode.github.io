@@ -9,7 +9,6 @@ redirect_from:
 
 {% include base_path %}
 
-
 Work experience
 ======
 * NAVER Cloud 
@@ -40,5 +39,6 @@ Reviewing
 
 Education
 ======
-* Ph.D Student in Artificial Intelligence, Korea Advanced Institute of Science and Technology (KAIST), 2027 (expected)
+* Ph.D Student in Artificial Intelligence, Korea Advanced Institute of Science and Technology (KAIST), WIP
+* M.S. in Control & Robotics Systems, Korea University, 2018
 
