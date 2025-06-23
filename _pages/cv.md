@@ -12,13 +12,13 @@ redirect_from:
 Work experience
 ======
 * NAVER Cloud - Technical Lead, AI Researcher
-  * 2021.12 - Present / Foundation Research Team
+  * 2021.12 - Present @ Foundation Research Team
   * Pre-training efficiency & Transformers architecture
   * Multi-linguality and multi-modality of large-scale Transformers
 * LG Energy Solution - Research Scientist
-  * 2020.11 - 2021.11 / Business Strategy Division
+  * 2020.11 - 2021.11 @ Business Strategy Division
 * Nepes - Assistant Manager
-  * 2018.01 - 2020.10 / Future Intelligence Division
+  * 2018.01 - 2020.10 @ Future Intelligence Division
   * Alternative military service program as an researcher  
 
 Publications
