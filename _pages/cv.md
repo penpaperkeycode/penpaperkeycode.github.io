@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV"
+title: ""
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -12,15 +12,15 @@ redirect_from:
 Work experience
 ======
 * NAVER Cloud 
-  * 2021.12 - Present / Foundation Research, Researcher
-        * Pre-training efficiency & Transformers architecture
-        * Multi-linguality and multi-modality of large-scale Transformers
+  * 2021.12 - Present / Foundation Research, Researcher  
+  * Pre-training efficiency & Transformers architecture
+  * Multi-linguality and multi-modality of large-scale Transformers
 * LG Energy Solution 
   * 2020.11 - 2021.11 / Business Strategy, Research Scientist
 
 * Nepes
   * 2018.01 - 2020.10 / Researcher, Assistant Manager
-       * Alternative military service program as an researcher  
+  * Alternative military service program as an researcher  
 
 Publications
 ======
@@ -31,7 +31,7 @@ Publications
 
 Reviewing
 ======
-**Conference **
+**Conference**
 * International Conference on Learning Representations
 * Neural Information Processing Systems
 * International Conference on Learning Representations
