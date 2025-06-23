@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-Work experience
+Work Experience
 ======
 * NAVER Cloud - Technical Lead, AI Researcher
   * 2021.12 - Present @ Foundation Research Team
