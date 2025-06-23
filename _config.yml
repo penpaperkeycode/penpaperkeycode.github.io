@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "log.jhkim"
+title                    : "The world shapes us."
 title_separator          : "-"
 name                     : &name "Jeonghoon Kim"
 description              : &description "Research Scientist"
