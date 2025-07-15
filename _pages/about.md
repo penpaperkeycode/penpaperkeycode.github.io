@@ -38,7 +38,7 @@ Publications
 **Jeonghoon Kim**, Byeongchan Lee, Cheonbok Park, Yeontaek Oh, Beomjun Kim, Taehwan Yoo, Seongjin Shin, Dongyoon Han, Jinwoo Shin, Kang Min Yoo.  
 <code style="color : darkorange">ICML 2025 (Poster)</code>.
 2. “LRQ: Optimizing Post-Training Quantization for Large Language Models by Learning Low-Rank Weight-Scaling Matrices.”  
-Jung Hyun Lee*, **Jeonghoon Kim***, June Yong Yang, Se Jung Kwon, Eunho Yang, Dongsoo Lee.  
+Jung Hyun Lee*, **Jeonghoon Kim^***, June Yong Yang, Se Jung Kwon, Eunho Yang, Dongsoo Lee.  
   <code style="color : darkorange">NAACL 2025 (Poster)</code>.  
 3. “Rethinking Channel Dimensions to Isolate Outliers for Low-bit Weight Quantization of Large Language Models.”  
 Jung Hwan Heo*, **Jeonghoon Kim***, Beomseok Kwon, Byeongwook Kim, Se Jung Kwon, Dongsoo Lee.    
