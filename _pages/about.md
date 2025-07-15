@@ -24,7 +24,7 @@ Work Experience
      
 **LG Energy Solution** : Nov.2020 - Nov.2021 / Business Strategy, Research Scientist
   
-**Nepes** : Jan.2018 - Oct.2020 / Future Intelligence, Researcher
+**Nepes** : Jan.2018 - Oct.2020 / Future Intelligence, Research Scientist
    * Alternative military service program as an researcher  
 
 -------
