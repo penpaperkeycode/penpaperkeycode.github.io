@@ -16,15 +16,15 @@ In a life lived only once, I am committed to building a career I will look back 
 
 Work Experience
 ======
-* NAVER Cloud - Technical Lead, AI Researcher
-  * 2021.12 - Present @ Foundation Research Team
-  * Pre-training efficiency & Transformers architecture
-  * Multi-linguality and multi-modality of large-scale Transformers
+* NAVER Cloud 
+  * Dec.2021 - Present / Foundation Research, Technical Lead (Research Scientist)
+      * Pre-training efficiency & Transformers architecture
+      * Multi-linguality and multi-modality of large-scale Transformers
 * LG Energy Solution - Research Scientist
-  * 2020.11 - 2021.11 @ Business Strategy Division
+  * Nov.2020 - Nov.2021 / Business Strategy, Research Scientist
 * Nepes - Assistant Manager
-  * 2018.01 - 2020.10 @ Future Intelligence Division
-  * Alternative military service program as an researcher  
+  * Jan.2018 - Oct.2020 / Future Intelligence, Researcher
+      * Alternative military service program as an researcher  
 
 Publications
 ======
