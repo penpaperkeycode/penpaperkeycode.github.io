@@ -13,6 +13,7 @@ I am an experimental scientist in Artificial Intelligence, focused on pushing th
 
 In a life lived only once, I am committed to building a career I will look back on without regret—one defined by curiosity, integrity, and lasting contribution.
 
+-------
 
 Work Experience
 ======
@@ -26,6 +27,7 @@ Work Experience
 **Nepes** : Jan.2018 - Oct.2020 / Future Intelligence, Researcher
    * Alternative military service program as an researcher  
 
+-------
 
 Publications 
 ======
@@ -48,7 +50,7 @@ Publications
 11. Hyunseok Lee, **Jeonghoon Kim**, Beomjun Kim, Jihoon Tack, Chansong Jo, Jaehong Lee, Cheonbok Park, Sookyo In, Jinwoo Shin, Kang Min Yoo. “ReGUIDE: Data Efficient GUI Grounding via Spatial Reasoning and Search.” <code style="color : darkorange">Arxiv (under review, 2025)</code>.
 12. **HyperCLOVA X Team**. “HyperCLOVA X THINK Technical Report” <code style="color : darkorange">Arxiv (Technical report, 2025)</code>.
 
-
+-------
 
 Reviewing
 ======
