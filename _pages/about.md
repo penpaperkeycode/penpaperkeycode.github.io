@@ -78,7 +78,7 @@ Hyunseok Lee, **Jeonghoon Kim**, Beomjun Kim, Jihoon Tack, Chansong Jo, Jaehong 
 
 Reviewing
 ======
-* International Conference on Learning Representations
+* International Conference on Machine Learning
 * Neural Information Processing Systems
 * International Conference on Learning Representations
 * Association for Computational Linguistics. 
