@@ -19,6 +19,7 @@ Work Experience
 ======
 **NAVER Cloud** : Dec.2021 - Present / Foundation Research, Technical Lead (Research Scientist)
    * Pre-training efficiency & Transformers architecture
+   * HyperCLOVA X modeling & pre-training (Technical Report: [2024](https://arxiv.org/abs/2404.01954), [2025](https://arxiv.org/abs/2506.22403))
    * Multi-linguality and multi-modality of large-scale Transformers
    * Model compression & quantization 
      
