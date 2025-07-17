@@ -22,7 +22,7 @@ Work Experience
    * HyperCLOVA X modeling & pre-training (Technical Report: [2024](https://arxiv.org/abs/2404.01954), [2025](https://arxiv.org/abs/2506.22403))
    * Multi-linguality and multi-modality of large-scale Transformers
    * Model compression & quantization
-   * Ph.D. candidate in AI at KAIST (advisor : Prof. [Jinwoo Shin](https://alinlab.kaist.ac.kr/shin.html)), researching pre-training, cross-lingual & multimodal Transformer—pursued alongside full-time role at NAVER Cloud.
+   * Alongside my full-time role at NAVER, I am pursuing a Ph.D. in AI at KAIST under Prof. [Jinwoo Shin](https://alinlab.kaist.ac.kr/shin.html), supported by a NAVER Cloud grant. 
      
 **LG Energy Solution** : Nov.2020 - Nov.2021 / Business Strategy, Research Scientist
   
