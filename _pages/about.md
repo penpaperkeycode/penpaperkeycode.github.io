@@ -57,22 +57,22 @@ Cheonbok Park*, **Jeonghoon Kim** *, Joosung Lee, Sanghwan Bae, Jaegul Choo, Kan
 
 
 ### Co-author
-7. "LUT-GEMM: Quantized Matrix Multiplication based on LUTs for Efficient Inference in Large-Scale Generative Language Models."  
+7. [LUT-GEMM: Quantized Matrix Multiplication based on LUTs for Efficient Inference in Large-Scale Generative Language Models.](https://arxiv.org/abs/2206.09557)  
 Gunho Park, Baeseong Park, Minsub Kim, Sungjae Lee, **Jeonghoon Kim**, Beomseok Kwon, Se Jung Kwon, Byeongwook Kim, Youngjoo Lee, Dongsoo Lee.    
  <code style="color : darkorange">ICLR2024</code>.  
-8. “Winning Both the Accuracy of Floating Point Activation and the Simplicity of Integer Arithmetic.”  
+8. [Winning Both the Accuracy of Floating Point Activation and the Simplicity of Integer Arithmetic.](https://openreview.net/forum?id=z92lBy1ehjI)  
 Yulhwa Kim, Jaeyong Jang, Jehun Lee, Jihoon Park, **Jeonghoon Kim**, Byeongwook Kim, Baeseong park, Se Jung Kwon, Dongsoo Lee, Jae-joon Kim.   
  <code style="color : darkorange">ICLR 2023</code>.
-9. “AlphaTuning: Quantization-Aware Parameter-Efficient Adaptation of Large-Scale Pre-Trained Language Models.”  
+9. [AlphaTuning: Quantization-Aware Parameter-Efficient Adaptation of Large-Scale Pre-Trained Language Models.](https://arxiv.org/abs/2210.03858)  
 Se Jung Kwon, **Jeonghoon Kim**, Jeongin Bae, Kang Min Yoo, Jin-Hwa Kim, Baeseong Park, Byeongwook Kim, Jung-Woo Ha, Nako Sung, Dongsoo Lee.   
  <code style="color : darkorange">Findings of EMNLP 2022</code>.
-10. “HyperCLOVA X Technical Report”  
+10. [HyperCLOVA X Technical Report](https://arxiv.org/abs/2404.01954)  
 **HyperCLOVA X Team**.    
 <code style="color : darkorange">Arxiv (Technical report, 2024)</code>.  
-11. “ReGUIDE: Data Efficient GUI Grounding via Spatial Reasoning and Search.”   
+11. [ReGUIDE: Data Efficient GUI Grounding via Spatial Reasoning and Search.](https://arxiv.org/abs/2505.15259)  
 Hyunseok Lee, **Jeonghoon Kim**, Beomjun Kim, Jihoon Tack, Chansong Jo, Jaehong Lee, Cheonbok Park, Sookyo In, Jinwoo Shin, Kang Min Yoo.  
  <code style="color : darkorange">Arxiv (under review, 2025)</code>.
-12. “HyperCLOVA X THINK Technical Report”   
+12. [HyperCLOVA X THINK Technical Report](https://arxiv.org/abs/2506.22403)  
 **HyperCLOVA X Team**.   
 <code style="color : darkorange">Arxiv (Technical report, 2025)</code>.
 
