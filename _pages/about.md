@@ -36,7 +36,7 @@ Publications
 *equal contribution
 
 ### Lead author
-1. “Peri-LN: Revisiting Normalization Layer in the Transformer Architecture.”  
+1. [Peri-LN: Revisiting Normalization Layer in the Transformer Architecture.](https://arxiv.org/abs/2502.02732)  
 **Jeonghoon Kim**, Byeongchan Lee, Cheonbok Park, Yeontaek Oh, Beomjun Kim, Taehwan Yoo, Seongjin Shin, Dongyoon Han, Jinwoo Shin, Kang Min Yoo.  
 <code style="color : darkorange">ICML 2025</code>.
 2. “LRQ: Optimizing Post-Training Quantization for Large Language Models by Learning Low-Rank Weight-Scaling Matrices.”  
