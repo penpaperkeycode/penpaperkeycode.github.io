@@ -18,13 +18,13 @@ In a life lived only once, I am committed to building a career I will look back 
 Work Experience
 ======
 **NAVER Cloud** : Dec.2021 - Present / Foundation Research, Technical Lead (Research Scientist)
-   * Pre-training efficiency & Transformers architecture
    * HyperCLOVA X modeling & pre-training (Technical Report: [2024](https://arxiv.org/abs/2404.01954), [2025](https://arxiv.org/abs/2506.22403))
+   * Pre-training efficiency & Transformers architecture
    * Multi-linguality and multi-modality of large-scale Transformers
    * Model compression & quantization
    * Alongside my full-time role at NAVER, I am pursuing a Ph.D. in AI at Korea Advanced Institute of Science and Technology ([KAIST](https://www.kaist.ac.kr/en/)) under Prof. [Jinwoo Shin](https://alinlab.kaist.ac.kr/shin.html), supported by a NAVER Cloud grant. 
      
-**LG Energy Solution** : Nov.2020 - Nov.2021 / Business Strategy, Research Scientist
+**LG Energy Solution** : Nov.2020 - Nov.2021 / Business Strategy, Data Scientist
   
 **Nepes** : Jan.2018 - Oct.2020 / Future Intelligence, Research Scientist
    * Alternative military service program as an researcher  
