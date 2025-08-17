@@ -62,7 +62,7 @@ Jung Hyun Lee*, **Jeonghoon Kim** *, Se Jung Kwon, Dongsoo Lee.
 ### Co-author
 8. [HyperCLOVA X THINK Technical Report](https://arxiv.org/abs/2506.22403)  
 **HyperCLOVA X Team**.   
-<code style="color : darkorange">Technical report(Arxiv, 2025)</code>.
+<code style="color : darkorange">Technical report (Arxiv, 2025)</code>.
 9. [ReGUIDE: Data Efficient GUI Grounding via Spatial Reasoning and Search.](https://arxiv.org/abs/2505.15259)  
 Hyunseok Lee, **Jeonghoon Kim**, Beomjun Kim, Jihoon Tack, Chansong Jo, Jaehong Lee, Cheonbok Park, Sookyo In, Jinwoo Shin, Kang Min Yoo.  
  <code style="color : darkorange">Arxiv (under review, 2025)</code>.
