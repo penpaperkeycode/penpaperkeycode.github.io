@@ -62,7 +62,7 @@ Jung Hyun Lee*, **Jeonghoon Kim** *, Se Jung Kwon, Dongsoo Lee.
 ### Co-author
 8. [HyperCLOVA X THINK Technical Report](https://arxiv.org/abs/2506.22403)  
 **HyperCLOVA X Team**.   
-<code style="color : darkorange">Arxiv (Technical report, 2025)</code>.
+<code style="color : darkorange">Technical report(Arxiv, 2025)</code>.
 9. [ReGUIDE: Data Efficient GUI Grounding via Spatial Reasoning and Search.](https://arxiv.org/abs/2505.15259)  
 Hyunseok Lee, **Jeonghoon Kim**, Beomjun Kim, Jihoon Tack, Chansong Jo, Jaehong Lee, Cheonbok Park, Sookyo In, Jinwoo Shin, Kang Min Yoo.  
  <code style="color : darkorange">Arxiv (under review, 2025)</code>.
@@ -71,7 +71,7 @@ Gunho Park, Baeseong Park, Minsub Kim, Sungjae Lee, **Jeonghoon Kim**, Beomseok 
  <code style="color : darkorange">ICLR2024</code>.
 11. [HyperCLOVA X Technical Report](https://arxiv.org/abs/2404.01954)  
 **HyperCLOVA X Team**.    
-<code style="color : darkorange">Arxiv (Technical report, 2024)</code>.  
+<code style="color : darkorange">Technical report (Arxiv, 2024)</code>.  
 12. [Winning Both the Accuracy of Floating Point Activation and the Simplicity of Integer Arithmetic.](https://openreview.net/forum?id=z92lBy1ehjI)  
 Yulhwa Kim, Jaeyong Jang, Jehun Lee, Jihoon Park, **Jeonghoon Kim**, Byeongwook Kim, Baeseong park, Se Jung Kwon, Dongsoo Lee, Jae-joon Kim.   
  <code style="color : darkorange">ICLR 2023</code>.
