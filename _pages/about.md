@@ -46,7 +46,7 @@ Jung Hyun Lee*, **Jeonghoon Kim** *, June Yong Yang, Se Jung Kwon, Eunho Yang, D
 Cheonbok Park*, **Jeonghoon Kim** *, Joosung Lee, Sanghwan Bae, Jaegul Choo, Kang Min Yoo.  
 <code style="color : darkorange">Arxiv (under review, 2025)</code>.
 7. Exploiting Vocabulary Frequency Imbalance in Language Model Pre-training.  
-Woojin Chung, **Jeonghoon Kim**  
+Woojin Chung*, **Jeonghoon Kim**  *  
 <code style="color : darkorange">Arxiv (under review, 2025)</code>.
 4. [Rethinking Channel Dimensions to Isolate Outliers for Low-bit Weight Quantization of Large Language Models.](https://arxiv.org/abs/2309.15531)  
 Jung Hwan Heo*, **Jeonghoon Kim** *, Beomseok Kwon, Byeongwook Kim, Se Jung Kwon, Dongsoo Lee.    
