@@ -47,7 +47,7 @@ Cheonbok Park*, **Jeonghoon Kim** *, Joosung Lee, Sanghwan Bae, Jaegul Choo, Kan
 <code style="color : darkorange">Arxiv (under review, 2025)</code>.
 7. [Exploiting Vocabulary Frequency Imbalance in Language Model Pre-training.](https://arxiv.org/abs/2508.15390)  
 Woojin Chung*, **Jeonghoon Kim**  *.  
-<code style="color : darkorange">Arxiv (under review, 2025)</code>.
+<code style="color : darkorange">Neurips 2025</code>.
 4. [Rethinking Channel Dimensions to Isolate Outliers for Low-bit Weight Quantization of Large Language Models.](https://arxiv.org/abs/2309.15531)  
 Jung Hwan Heo*, **Jeonghoon Kim** *, Beomseok Kwon, Byeongwook Kim, Se Jung Kwon, Dongsoo Lee.    
 <code style="color : darkorange">ICLR2024</code>.  
