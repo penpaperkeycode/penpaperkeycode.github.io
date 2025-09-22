@@ -42,12 +42,12 @@ Publications
 2. [LRQ: Optimizing Post-Training Quantization for Large Language Models by Learning Low-Rank Weight-Scaling Matrices.](https://arxiv.org/abs/2407.11534)  
 Jung Hyun Lee*, **Jeonghoon Kim** *, June Yong Yang, Se Jung Kwon, Eunho Yang, Dongsoo Lee.  
   <code style="color : darkorange">NAACL 2025</code>.
-6. [Cross-lingual Collapse: How Language-Centric Foundation Models Shape Reasoning in Large Language Models.](https://arxiv.org/abs/2506.05850)  
-Cheonbok Park*, **Jeonghoon Kim** *, Joosung Lee, Sanghwan Bae, Jaegul Choo, Kang Min Yoo.  
-<code style="color : darkorange">Arxiv (under review, 2025)</code>.
-7. [Exploiting Vocabulary Frequency Imbalance in Language Model Pre-training.](https://arxiv.org/abs/2508.15390)  
+6. [Exploiting Vocabulary Frequency Imbalance in Language Model Pre-training.](https://arxiv.org/abs/2508.15390)  
 Woojin Chung*, **Jeonghoon Kim**  *.  
 <code style="color : darkorange">Neurips 2025</code>.
+7. [Cross-lingual Collapse: How Language-Centric Foundation Models Shape Reasoning in Large Language Models.](https://arxiv.org/abs/2506.05850)  
+Cheonbok Park*, **Jeonghoon Kim** *, Joosung Lee, Sanghwan Bae, Jaegul Choo, Kang Min Yoo.  
+<code style="color : darkorange">Arxiv (under review, 2025)</code>.
 4. [Rethinking Channel Dimensions to Isolate Outliers for Low-bit Weight Quantization of Large Language Models.](https://arxiv.org/abs/2309.15531)  
 Jung Hwan Heo*, **Jeonghoon Kim** *, Beomseok Kwon, Byeongwook Kim, Se Jung Kwon, Dongsoo Lee.    
 <code style="color : darkorange">ICLR2024</code>.  
