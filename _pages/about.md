@@ -38,7 +38,7 @@ Publications
 ### Lead author
 1. [Exploiting Vocabulary Frequency Imbalance in Language Model Pre-training.](https://arxiv.org/abs/2508.15390)  
 Woojin Chung*, **Jeonghoon Kim**  *.  
-<code style="color : darkorange">Neurips 2025</code>.
+<code style="color : darkorange">NeurIPS 2025</code>.
 1. [Peri-LN: Revisiting Normalization Layer in the Transformer Architecture.](https://arxiv.org/abs/2502.02732)  
 **Jeonghoon Kim**, Byeongchan Lee, Cheonbok Park, Yeontaek Oh, Beomjun Kim, Taehwan Yoo, Seongjin Shin, Dongyoon Han, Jinwoo Shin, Kang Min Yoo.  
 <code style="color : darkorange">ICML 2025</code>.
