@@ -31,7 +31,7 @@ Work Experience
 
 -------
 
-Publications 
+Recent Publications 
 ======
 *equal contribution
 
