@@ -17,7 +17,7 @@ In a life lived only once, I am committed to building a career I will look back 
 
 Work Experience
 ======
-**NAVER Cloud** : Dec.2021 - Present / Foundation Research, Technical Lead (Research Scientist)
+**NAVER Cloud** : Dec.2021 - Present / Foundation Research, Leader (Research Scientist)
    * HyperCLOVA X modeling & pre-training (Technical Report: [2024](https://arxiv.org/abs/2404.01954), [2025](https://arxiv.org/abs/2506.22403))
    * Pre-training efficiency & Transformers architecture
    * Multi-linguality and multi-modality of large-scale Transformers
