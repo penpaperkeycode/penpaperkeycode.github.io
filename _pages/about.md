@@ -9,7 +9,7 @@ redirect_from:
 
 > “Experience feeds us, opportunity grows us, relationships inspire us, and the world shapes us.”
 
-I am a research scientist in AI, exploring the <code style="color : magenta">representation dynamics</code> of large Transformer models—how their internal representations are formed, evolve, and can be projected into more compact or structured spaces. My work spans pre-training, tokenization, model architecture, and low-bit model compression, examining the fundamental mechanisms that shape model behavior across scales.
+I am a research scientist in Artificial Intelligence, exploring the <code style="color : magenta">representation dynamics</code> of large Transformer models—how their internal representations are formed, evolve, and can be projected into more compact or structured spaces. My work spans pre-training, tokenization, model architecture, and low-bit model compression, examining the fundamental mechanisms that shape model behavior across scales.
 
 Grounded in rigorous empirical methodology, I aim to translate these insights into deployable systems and services that make the most of every FLOP, byte, and human interaction.
 
