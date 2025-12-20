@@ -21,9 +21,12 @@ Work Experience
 ======
 **NAVER Cloud** : Dec.2021 - Present / Foundation Research, Leader (Research Scientist)
    * HyperCLOVA X modeling & pre-training (Technical Report: [2024](https://arxiv.org/abs/2404.01954), [2025](https://arxiv.org/abs/2506.22403))
-   * Pre-training efficiency & Transformers architecture
-   * Multi-linguality and multi-modality of large-scale Transformers
-   * Model compression & quantization
+   * Omni-foundation models and multi-linguality of large-scale Transformers.
+   * Pre-training efficiency & Transformers architecture.
+   * Model compression & quantization.
+   * 2023 — Promoted to a technical leadership role, Hyperscale AI Efficiency Team
+   * 2024 — Promoted to a technical leadership role, Foundation Research Team
+   * 2025 — Appointed Team Lead, Foundation Research Team, Hyperscale AI Division
    * Alongside my full-time role at NAVER, I am pursuing a Ph.D. in AI at Korea Advanced Institute of Science and Technology ([KAIST](https://www.kaist.ac.kr/en/)) under Prof. [Jinwoo Shin](https://alinlab.kaist.ac.kr/shin.html), supported by a NAVER Cloud grant. 
      
 **LG Energy Solution** : Nov.2020 - Nov.2021 / Business Strategy, Data Scientist
