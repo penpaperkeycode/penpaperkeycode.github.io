@@ -24,9 +24,9 @@ Work Experience
    * Pre-training efficiency & Transformers architecture.
    * Model compression & quantization.
    * Also serves as Mission Lead for Omni-Pathfinding and Technical Writing.
-   * 2023: Promoted to a technical leadership role, Hyperscale AI Efficiency Team
-   * 2024: Promoted to a technical leadership role, Foundation Research Team
    * 2025: Appointed Team Lead, Foundation Research Team, Hyperscale AI Division
+   * 2024: Promoted to a technical leadership role, Foundation Research Team
+   * 2023: Promoted to a technical leadership role, Hyperscale AI Efficiency Team
    * Alongside my full-time role at NAVER, I am pursuing a Ph.D. in AI at Korea Advanced Institute of Science and Technology ([KAIST](https://www.kaist.ac.kr/en/)) under Prof. [Jinwoo Shin](https://alinlab.kaist.ac.kr/shin.html), supported by a NAVER Cloud grant. 
      
 **LG Energy Solution** : Nov.2020 - Nov.2021 / Business Strategy, Data Scientist
