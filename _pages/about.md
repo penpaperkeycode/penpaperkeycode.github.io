@@ -11,7 +11,7 @@ redirect_from:
 
 I am a research scientist in Artificial Intelligence, studying the representation dynamics of large Transformer models: how internal representations form, align, and can be mapped into other spaces. My work spans pre-training, tokenization, model architecture, and low-bit model compression, with a focus on the mechanisms that shape model behavior across scales.  
 
-Grounded in rigorous empirical methods, I believe industrial research matters most when it narrows the gap between what is theoretically possible and what is practically deployable, extracting maximum value from every FLOP, byte, and human interaction. In a life lived only once, I am committed to building a career I can look back on without regret, defined by curiosity, integrity, and lasting contributions.  
+Grounded in rigorous empirical methods, I believe industrial research matters most when it narrows the gap between what is theoretically possible and what is practically deployable, extracting maximum value from every FLOPS, byte, and human interaction. In a life lived only once, I am committed to building a career I can look back on without regret, defined by curiosity, integrity, and lasting contributions.  
 
 
 -------
