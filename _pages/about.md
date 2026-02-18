@@ -19,11 +19,9 @@ Grounded in rigorous empirical methods, I believe industrial research matters mo
 Work Experience
 ======
 **NAVER Cloud** : Dec.2021 - Present / Foundation Research, Leader (Research Scientist)
-   * Pathfindings of HyperCLOVA X modeling (Technical Report: [2024](https://arxiv.org/abs/2404.01954), [2025](https://arxiv.org/abs/2506.22403))
+   * Pathfindings of HyperCLOVA X modeling (Technical Report: [2024](https://arxiv.org/abs/2404.01954), [2025](https://arxiv.org/abs/2506.22403), [2026](https://arxiv.org/abs/2601.01792))
    * Omni-foundation models and multi-linguality of large-scale Transformers.
-   * Pre-training efficiency & Transformers architecture.
-   * Model compression & quantization.
-   * Also serves as Mission Lead for Omni-Pathfinding and Technical Writing.
+   * Pre-training, Transformers architecture, & model compression (quantization).
    * 2025: Appointed Team Lead, Foundation Research Team, Hyperscale AI Division
    * 2024: Promoted to a technical leadership role, Foundation Research Team
    * 2023: Promoted to a technical leadership role, Hyperscale AI Efficiency Team
