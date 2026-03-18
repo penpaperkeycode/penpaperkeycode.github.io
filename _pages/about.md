@@ -40,9 +40,6 @@ Recent Publications
 *equal contribution
 
 ### Lead author
-1. [Benchmarks Are Not That Out of Distribution: Word Overlap Predicts Performance.](https://arxiv.org/abs/2602.10657)  
-Woojin Chung*, **Jeonghoon Kim**  *.  
-<code style="color : darkorange">Arxiv (under review, 2026)</code>.
 1. [Peri-LN: Revisiting Normalization Layer in the Transformer Architecture.](https://arxiv.org/abs/2502.02732)  
 **Jeonghoon Kim**, Byeongchan Lee, Cheonbok Park, Yeontaek Oh, Beomjun Kim, Taehwan Yoo, Seongjin Shin, Dongyoon Han, Jinwoo Shin, Kang Min Yoo.  
 <code style="color : darkorange">ICML 2025</code>.
@@ -52,9 +49,6 @@ Woojin Chung*, **Jeonghoon Kim**  *.
 3. [LRQ: Optimizing Post-Training Quantization for Large Language Models by Learning Low-Rank Weight-Scaling Matrices.](https://arxiv.org/abs/2407.11534)  
 Jung Hyun Lee*, **Jeonghoon Kim** *, June Yong Yang, Se Jung Kwon, Eunho Yang, Dongsoo Lee.  
   <code style="color : darkorange">NAACL 2025</code>.
-4. [Cross-lingual Collapse: How Language-Centric Foundation Models Shape Reasoning in Large Language Models.](https://arxiv.org/abs/2506.05850)  
-Cheonbok Park*, **Jeonghoon Kim** *, Joosung Lee, Sanghwan Bae, Jaegul Choo, Kang Min Yoo.  
-<code style="color : darkorange">Arxiv (under review, 2025)</code>.
 5. [Rethinking Channel Dimensions to Isolate Outliers for Low-bit Weight Quantization of Large Language Models.](https://arxiv.org/abs/2309.15531)  
 Jung Hwan Heo*, **Jeonghoon Kim** *, Beomseok Kwon, Byeongwook Kim, Se Jung Kwon, Dongsoo Lee.    
 <code style="color : darkorange">ICLR2024</code>.  
@@ -63,7 +57,13 @@ Jung Hwan Heo*, **Jeonghoon Kim** *, Beomseok Kwon, Byeongwook Kim, Se Jung Kwon
   <code style="color : darkorange">NeurIPS 2023</code>.  
 7. [FlexRound: Learnable Rounding based on Element-wise Division for Post-Training Quantization.](https://arxiv.org/abs/2306.00317)  
 Jung Hyun Lee*, **Jeonghoon Kim** *, Se Jung Kwon, Dongsoo Lee.    
-<code style="color : darkorange">ICML 2023</code>.  
+<code style="color : darkorange">ICML 2023</code>.
+1. [Benchmarks Are Not That Out of Distribution: Word Overlap Predicts Performance.](https://arxiv.org/abs/2602.10657)  
+Woojin Chung*, **Jeonghoon Kim**  *.  
+<code style="color : darkorange">Arxiv (under review, 2026)</code>.
+4. [Cross-lingual Collapse: How Language-Centric Foundation Models Shape Reasoning in Large Language Models.](https://arxiv.org/abs/2506.05850)  
+Cheonbok Park*, **Jeonghoon Kim** *, Joosung Lee, Sanghwan Bae, Jaegul Choo, Kang Min Yoo.  
+<code style="color : darkorange">Arxiv (under review, 2026)</code>.
 
 
 ### Co-author
