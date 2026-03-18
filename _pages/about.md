@@ -20,7 +20,7 @@ Work Experience
 ======
 **NAVER Cloud** : Dec.2021 - Present / Foundation Research, Leader (Research Scientist)
    * Pathfindings of HyperCLOVA X modeling (Technical Report: [2024](https://arxiv.org/abs/2404.01954), [2025](https://arxiv.org/abs/2506.22403), [2026](https://arxiv.org/abs/2601.01792))
-   * Omni-foundation models and multi-linguality of large-scale Transformers.
+   * Omni-foundation models.
    * Pre-training, Transformers architecture, & model compression (quantization).
    * 2025: Appointed Team Lead, Foundation Research Team, Hyperscale AI Division
    * 2024: Promoted to a technical leadership role, Foundation Research Team
