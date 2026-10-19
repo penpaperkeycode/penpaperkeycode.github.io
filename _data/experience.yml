@@ -74,7 +74,7 @@
     - text: "(2025) Omni-foundation models and multilinguality of large-scale Transformers"
       papers: [hcx_8b_omni]
       sub:
-        - "Also serves as Mission Lead for Omni-Pathfinding."
+        - "Served as Mission Lead for Omni-Pathfinding."
     - text: "(2021–2023) Model compression & quantization"
       papers: [lrq, rethinking_channel, peqa, flexround]
   promotions:
