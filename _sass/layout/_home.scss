@@ -12,6 +12,21 @@ $tl-dot-top                 : 0.45rem; // puts the dot on the first line of the 
    Layout
    ========================================================================== */
 
+/* page container (moved here from the template's removed layout/_page.scss) */
+#main {
+  @include container;
+  @include clearfix;
+  margin-top: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  animation: intro 0.3s both;
+  animation-delay: 0.35s;
+
+  @include breakpoint($x-large) {
+    max-width: $x-large;
+  }
+}
+
 #main.home {
   max-width: $home-narrow;
   margin-top: 1.5rem;

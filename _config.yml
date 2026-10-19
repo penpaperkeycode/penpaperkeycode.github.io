@@ -1,28 +1,21 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your entire site, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# `jekyll serve -l -H localhost`. If you change this file, please restart the 
-# server process.
+# Site configuration for https://penpaperkeycode.github.io (Jekyll on GitHub Pages).
+# `jekyll serve` does NOT reload this file automatically: restart the server after editing it.
 
 # Basic Site Settings
 locale                   : "en-US"
-site_theme               : "default"
+site_theme               : "default" # "default" (light) or "dark"; visitors can still toggle
 title                    : "Jeonghoon Kim"
 title_separator          : "-"
 name                     : &name "Jeonghoon Kim"
 description              : &description "Research scientist and team lead at NAVER Cloud, working on large-scale foundation models."
-url                      : "https://penpaperkeycode.github.io" # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
-baseurl                  : "" # the subpath of your site, e.g. "/blog"
+url                      : "https://penpaperkeycode.github.io"
+baseurl                  : ""
 repository               : "penpaperkeycode/penpaperkeycode.github.io"
 
-# Site Author - The following control what appear as part of the author content on the side bar.
-#               If a field is blank the icon and link will not appear, otherwise it will be shown.
-#               Additional customization can be done by editing /_includes/author-profile.html
-#               The homepage profile header (_includes/home/profile.html) shows: avatar, name, pronouns,
-#               bio, employer, location, uri, email, googlescholar, semantic, orcid, arxiv, researchgate,
-#               github, linkedin, twitter, bluesky, mastodon and youtube (other fields only on other pages).
+# Site Author — rendered by _includes/home/profile.html (photo, name, bio, employer, location, links).
+# A blank field hides its link. The profile shows: avatar, name, pronouns, bio, employer, location,
+# uri, email, googlescholar, semantic, orcid, arxiv, researchgate, github, linkedin, twitter,
+# bluesky, mastodon and youtube.
 author:
   # Biographic information
   avatar           : "profile-square.jpg"
@@ -79,52 +72,6 @@ author:
   youtube          : # Username
   zhihu            : # Username
 
-# Publication Category - The following the list of publication categories and their headings
-publication_category:
-  # books:
-  #   title: 'Books'
-  # manuscripts:
-  #   title: 'Journal Articles'    
-  conferences:
-    title: 'Conference Papers'
-
-# Site Settings
-teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
-breadcrumbs              : false # true, false (default)
-words_per_minute         : 160
-future                   : true
-read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
-talkmap_link             : false      #change to true to add link to talkmap on talks page
-comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
-  disqus:
-    shortname            :
-  discourse:
-    server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
-  facebook:
-    appid                :
-    num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
-staticman:
-  allowedFields          : ['name', 'email', 'url', 'message']
-  branch                 : "gh-pages" # "master", "gh-pages"
-  commitMessage          : "New comment."
-  filename               : comment-{@timestamp}
-  format                 : "yml"
-  moderation             : true
-  path                   : "_data/comments/{options.slug}"
-  requiredFields         : ['name', 'email', 'message']
-  transforms:
-    email                : "md5"
-  generatedFields:
-    date:
-      type               : "date"
-      options:
-        format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
-atom_feed:
-  hide                   : true      # change to true to hide the RSS feed in the footer
-  path                   : # blank (default) uses feed.xml
-
 
 # SEO Related
 google_site_verification :
@@ -135,13 +82,13 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : # &twitter
+  username               :
 facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : "profile-square.jpg" # Social media default site image
-og_description           : "Research scientist and team lead at NAVER Cloud, working on large-scale foundation models." # Social media default site image description
+og_image                 : "profile-square.jpg" # default image for link previews (in /images/)
+og_description           : "Research scientist and team lead at NAVER Cloud, working on large-scale foundation models."
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -152,82 +99,35 @@ social:
 
 # Analytics
 analytics:
-  provider               :  "false" # false (default), "google", "google-universal", "google-analytics-4", "custom"
+  provider               : "false" # false (default), "google", "google-universal", "google-analytics-4", "custom"
   google:
     tracking_id          :
 
 
 # Reading Files
 include:
-  - .htaccess
   - _pages
-  - files
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
-  - .asset-cache
   - .bundle
-  - .github
-  - .jekyll-assets-cache
+  - .jekyll-cache
   - .sass-cache
   - assets/js/_main.js
   - assets/js/plugins
-  - assets/js/vendor
-  - CHANGELOG
-  - Capfile
   - CLAUDE.md
-  - config
+  - docker-compose.yaml
   - Dockerfile
   - Gemfile
-  - Gruntfile.js
-  - gulpfile.js
   - LICENSE
   - local
-  - log
   - node_modules
   - package.json*
-  - Rakefile
   - README
   - tmp
   - vendor
-  # Old Markdown CV, superseded by the homepage: /cv/ and /resume redirect to / through
-  # redirect_from in _pages/about.md (remove those two lines there before re-enabling this page).
-  - _pages/cv.md
-  # Template sample pages, files and tooling (kept in the repo, not published)
-  - _pages/archive-layout-with-content.md
-  - _pages/category-archive.html
-  - _pages/collection-archive.html
-  - _pages/cv-json.md
-  - _pages/markdown.md
-  - _pages/non-menu-page.md
-  - _pages/page-archive.html
-  - _pages/portfolio.html
-  - _pages/publications.html
-  - _pages/sitemap.md
-  - _pages/tag-archive.html
-  - _pages/talkmap.html
-  - _pages/talks.html
-  - _pages/teaching.html
-  - _pages/terms.md
-  - _pages/year-archive.html
-  - files/bibtex1.bib
-  - files/paper1.pdf
-  - files/paper2.pdf
-  - files/paper3.pdf
-  - files/slides1.pdf
-  - files/slides2.pdf
-  - files/slides3.pdf
-  - CONTRIBUTING.md
-  - docker-compose.yaml
-  - markdown_generator
-  - scripts
-  - talkmap
-  - talkmap.ipynb
-  - talkmap.py
-  - talkmap_out.ipynb
 keep_files:
   - .git
-  - .svn
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
@@ -252,143 +152,35 @@ kramdown:
   enable_coderay: false
 
 
-# These settings control the types of collections used by the template
-collections:
-  teaching:
-    output: true
-    permalink: /:collection/:path/
-  publications:
-    output: true
-    permalink: /:collection/:path/
-  portfolio:
-    output: true
-    permalink: /:collection/:path/
-  talks:
-    output: true
-    permalink: /:collection/:path/
-
-
-# These settings control how pages and collections are included in the site
+# Pages use the homepage layout (profile + content) unless they set their own
 defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      published: false # template sample content, not published
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
-  # _pages
   - scope:
       path: ""
       type: pages
     values:
-      layout: single
-      author_profile: true
-  # _teaching
-  - scope:
-      path: ""
-      type: teaching
-    values:
-      published: false # template sample content, not published
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
-  # _publications
-  - scope:
-      path: ""
-      type: publications
-    values:
-      published: false # template sample content, not published
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
-  # _portfolio
-  - scope:
-      path: ""
-      type: portfolio
-    values:
-      published: false # template sample content, not published
-      layout: single
-      author_profile: true
-      share: true
-      comment: true
-  # _talks
-  - scope:
-      path: ""
-      type: talks
-    values:
-      published: false # template sample content, not published
-      layout: talk
-      author_profile: true
-      share: true
+      layout: home
 
 
 # Sass/SCSS
 sass:
   sass_dir: _sass
-  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+  style: compressed
 
 
 # Outputting
 permalink: /:categories/:title/
-# paginate: 5 # amount of posts to show
-# paginate_path: /page:num/
-timezone: Etc/UTC # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Etc/UTC
 
 
-# Plugins
+# Plugins (all supported by GitHub Pages)
 plugins:
-  - jekyll-feed
-  - jekyll-gist
-  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-redirect-from
-  - jemoji
 
 # Mimic GitHub Pages with --safe
 whitelist:
-  - jekyll-feed
-  - jekyll-gist
-  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-redirect-from
-  - jemoji
-
-
-# Archives
-#  Type
-#  - GitHub Pages compatible archive pages built with Liquid ~> type: liquid (default)
-#  - Jekyll Archives plugin archive pages ~> type: jekyll-archives
-#  Path (examples)
-#  - Archive page should exist at path when using Liquid method or you can
-#    expect broken links (especially with breadcrumbs enabled)
-#  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
-#  - <base_path/categories/my-awesome-category/index.html ~> path: /categories/
-#  - <base_path/my-awesome-category/index.html ~> path: /
-category_archive:
-  type: liquid
-  path: /categories/
-tag_archive:
-  type: liquid
-  path: /tags/
-# https://github.com/jekyll/jekyll-archives
-# jekyll-archives:
-#   enabled:
-#     - categories
-#     - tags
-#   layouts:
-#     category: archive-taxonomy
-#     tag: archive-taxonomy
-#   permalinks:
-#     category: /categories/:name/
-#     tag: /tags/:name/
 
 
 # HTML Compression
