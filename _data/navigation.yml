@@ -1,33 +1,34 @@
-# The following is the order of the links in the header of the website.
+# Links in the masthead (top bar), shown left to right.
 #
-# Changing the order here will adjust the order and you can also add additional
-# links. Removing a link prevents it from showing in the header, but does not
-# prevent it from being included in the site.
-#
-# NOTE that only one of the CV options should be selected, the first is for the
-#      Markdown formatted page while the second is generated using JSON.
+# The site title (left) links to the top of the homepage.
+# The homepage sections can be linked with "/#<section-id>":
+#   About -> /#about, Work Experience -> /#work-experience, Education -> /#education,
+#   Publications -> /#publications, Reviewing -> /#reviewing
+# Links that do not fit on small screens move into the menu button automatically.
 
 main:
+  - title: "Experience"
+    url: /#work-experience
+
+  - title: "Education"
+    url: /#education
+
+  - title: "Publications"
+    url: /#publications
+
+  - title: "Reviewing"
+    url: /#reviewing
+
+  # Template pages (not published on this site; kept for reference):
   # - title: "Publications"
   #   url: /publications/
-
   # - title: "Talks"
-  #   url: /talks/    
-
+  #   url: /talks/
   # - title: "Teaching"
-  #   url: /teaching/    
-    
+  #   url: /teaching/
   # - title: "Portfolio"
   #   url: /portfolio/
-            
   # - title: "CV"
   #   url: /cv/
-
-  # - title: "CV"
-  #   url: /cv-json/
-
   # - title: "Blog Posts"
   #   url: /year-archive/
-    
-  # - title: "Guide"
-  #   url: /markdown/

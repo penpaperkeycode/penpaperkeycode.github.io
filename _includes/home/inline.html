@@ -1,0 +1,11 @@
+{%- comment -%}
+  Renders one short Markdown string inline (no <p> wrapper) and opens its external links
+  in a new tab. A YAML slip such as   - 2026: Promoted ...   (missing double quotes) arrives
+  here as a one-entry hash; it is turned back into "2026: Promoted ..." instead of {2026=>...}.
+  Usage: {% include home/inline.html text=some_value %}
+{%- endcomment -%}
+{%- assign raw = include.text -%}
+{%- assign pair = raw | first -%}
+{%- if raw.text == nil and pair and pair.size == 2 -%}{%- capture raw -%}{{ pair[0] }}: {{ pair[1] }}{%- endcapture -%}{%- endif -%}
+{%- capture newtab -%}<span class="screen-reader-text"> (opens in a new tab)</span></a>{%- endcapture -%}
+{{- raw | markdownify | remove: "<p>" | remove: "</p>" | strip | replace: '<a href="http', '<a target="_blank" rel="noopener noreferrer" href="http' | replace: '</a>', newtab -}}

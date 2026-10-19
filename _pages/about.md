@@ -1,100 +1,36 @@
 ---
 permalink: /
-title: "About"
+layout: home
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
+  - /cv/
+  - /resume
 ---
 
-> “Experience feeds us, opportunity grows us, relationships inspire us, and the world shapes us.”
+{% comment %}
+  HOW THIS PAGE IS BUILT (this note is not shown on the site)
+  - Photo, name, bio, employer, location and profile links: "author:" in _config.yml
+  - The About text: right below this note (plain Markdown)
+  - Each "include home/..." line further down renders one section from a data file:
+      home/experience.html    -> _data/experience.yml    (Work Experience)
+      home/education.html     -> _data/education.yml     (Education)
+      home/publications.html  -> _data/publications.yml  (Publications)
+      home/reviewing.html     -> _data/reviewing.yml     (Reviewing)
+    Each data file starts with a short "HOW TO ADD" guide.
+    Move or delete an include line to reorder or hide that section.
+  - Masthead links: _data/navigation.yml
+{% endcomment %}
 
-I am a research scientist in Artificial Intelligence, studying the representation dynamics of large Transformer models: how internal representations form, align, and can be mapped into other spaces. My work spans pre-training, tokenization, model architecture, and model compression, with a focus on the mechanisms that shape model behavior across scales.  
+## About
 
-Grounded in rigorous empirical methods, I believe industrial research matters most when it narrows the gap between what is theoretically possible and what is practically deployable, extracting maximum value from every FLOPS, byte, and human interaction. In a life lived only once, I am committed to building a career I can look back on without regret, defined by curiosity, integrity, and lasting contributions.  
+I am a research scientist and team lead at NAVER Cloud, working on large-scale foundation models. My research focuses on understanding how pre-training, model architecture, and data shape the learning dynamics and capabilities of Transformer models. My work spans foundation model pre-training, multilingual and multimodal learning, and model compression. I aim to bridge fundamental research and large-scale model production, turning empirical insights into more efficient AI systems.
 
+{% include home/experience.html %}
 
--------
+{% include home/education.html %}
 
-Work Experience
-======
-**NAVER Cloud** : Dec.2021 - Present / Foundation Research, Leader (Research Scientist)
-   * Pathfindings of HyperCLOVA X modeling (Technical Report: [2024](https://arxiv.org/abs/2404.01954), [2025](https://arxiv.org/abs/2506.22403), [2026](https://arxiv.org/abs/2601.01792))
-   * Omni-foundation models.
-   * Pre-training, Transformers architecture, & model compression (quantization).
-   * 2025: Appointed Team Lead, Foundation Research Team, Hyperscale AI Division
-   * 2024: Promoted to a technical leadership role, Foundation Research Team
-   * 2023: Promoted to a technical leadership role, Hyperscale AI Efficiency Team
-   * Alongside my full-time role at NAVER, I am pursuing a Ph.D. in AI at Korea Advanced Institute of Science and Technology ([KAIST](https://www.kaist.ac.kr/en/)) under Prof. [Jinwoo Shin](https://alinlab.kaist.ac.kr/shin.html), supported by a NAVER Cloud grant. 
-     
-**LG Energy Solution** : Nov.2020 - Nov.2021 / Business Strategy, Data Scientist
-  
-**Nepes** : Jan.2018 - Oct.2020 / Future Intelligence, Research Scientist
-   * 2019: Promoted to an assistant manager.
-   * Military service (South Korea).
+{% include home/publications.html %}
 
--------
-
-Recent Publications 
-======
-*equal contribution
-
-### Lead author
-1. [Peri-LN: Revisiting Normalization Layer in the Transformer Architecture.](https://arxiv.org/abs/2502.02732)  
-**Jeonghoon Kim**, Byeongchan Lee, Cheonbok Park, Yeontaek Oh, Beomjun Kim, Taehwan Yoo, Seongjin Shin, Dongyoon Han, Jinwoo Shin, Kang Min Yoo.  
-<code style="color : darkorange">ICML 2025</code>.
-1. [Exploiting Vocabulary Frequency Imbalance in Language Model Pre-training.](https://arxiv.org/abs/2508.15390)  
-Woojin Chung*, **Jeonghoon Kim**  *.  
-<code style="color : darkorange">NeurIPS 2025</code>.
-3. [LRQ: Optimizing Post-Training Quantization for Large Language Models by Learning Low-Rank Weight-Scaling Matrices.](https://arxiv.org/abs/2407.11534)  
-Jung Hyun Lee*, **Jeonghoon Kim** *, June Yong Yang, Se Jung Kwon, Eunho Yang, Dongsoo Lee.  
-  <code style="color : darkorange">NAACL 2025</code>.
-5. [Rethinking Channel Dimensions to Isolate Outliers for Low-bit Weight Quantization of Large Language Models.](https://arxiv.org/abs/2309.15531)  
-Jung Hwan Heo*, **Jeonghoon Kim** *, Beomseok Kwon, Byeongwook Kim, Se Jung Kwon, Dongsoo Lee.    
-<code style="color : darkorange">ICLR2024</code>.  
-6. [Memory-Efficient Fine-Tuning of Compressed Large Language Models via sub-4-bit Integer Quantization.](https://arxiv.org/abs/2305.14152)  
-**Jeonghoon Kim** * , Jung Hyun Lee*, Sungdong Kim, Joonsuk Park, Kang Min Yoo, Se Jung Kwon, Dongsoo Lee.   
-  <code style="color : darkorange">NeurIPS 2023</code>.  
-7. [FlexRound: Learnable Rounding based on Element-wise Division for Post-Training Quantization.](https://arxiv.org/abs/2306.00317)  
-Jung Hyun Lee*, **Jeonghoon Kim** *, Se Jung Kwon, Dongsoo Lee.    
-<code style="color : darkorange">ICML 2023</code>.
-1. [Benchmarks Are Not That Out of Distribution: Word Overlap Predicts Performance.](https://arxiv.org/abs/2602.10657)  
-Woojin Chung*, **Jeonghoon Kim**  *.  
-<code style="color : darkorange">Arxiv (under review, 2026)</code>.
-4. [Cross-lingual Collapse: How Language-Centric Foundation Models Shape Reasoning in Large Language Models.](https://arxiv.org/abs/2506.05850)  
-Cheonbok Park*, **Jeonghoon Kim** *, Joosung Lee, Sanghwan Bae, Jaegul Choo, Kang Min Yoo.  
-<code style="color : darkorange">Arxiv (under review, 2026)</code>.
-
-
-### Co-author
-8. [HyperCLOVA X 8B Omni.](https://arxiv.org/abs/2601.01792)  
-**HyperCLOVA X Team**.   
-<code style="color : darkorange">Technical report (Arxiv, 2026)</code>.
-8. [HyperCLOVA X THINK Technical Report.](https://arxiv.org/abs/2506.22403)  
-**HyperCLOVA X Team**.   
-<code style="color : darkorange">Technical report (Arxiv, 2025)</code>.
-9. [ReGUIDE: Data Efficient GUI Grounding via Spatial Reasoning and Search.](https://arxiv.org/abs/2505.15259)  
-Hyunseok Lee, **Jeonghoon Kim**, Beomjun Kim, Jihoon Tack, Chansong Jo, Jaehong Lee, Cheonbok Park, Sookyo In, Jinwoo Shin, Kang Min Yoo.  
- <code style="color : darkorange">Arxiv (under review, 2025)</code>.
-10. [LUT-GEMM: Quantized Matrix Multiplication based on LUTs for Efficient Inference in Large-Scale Generative Language Models.](https://arxiv.org/abs/2206.09557)  
-Gunho Park, Baeseong Park, Minsub Kim, Sungjae Lee, **Jeonghoon Kim**, Beomseok Kwon, Se Jung Kwon, Byeongwook Kim, Youngjoo Lee, Dongsoo Lee.    
- <code style="color : darkorange">ICLR2024</code>.
-11. [HyperCLOVA X Technical Report](https://arxiv.org/abs/2404.01954)  
-**HyperCLOVA X Team**.    
-<code style="color : darkorange">Technical report (Arxiv, 2024)</code>.  
-12. [Winning Both the Accuracy of Floating Point Activation and the Simplicity of Integer Arithmetic.](https://openreview.net/forum?id=z92lBy1ehjI)  
-Yulhwa Kim, Jaeyong Jang, Jehun Lee, Jihoon Park, **Jeonghoon Kim**, Byeongwook Kim, Baeseong park, Se Jung Kwon, Dongsoo Lee, Jae-joon Kim.   
- <code style="color : darkorange">ICLR 2023</code>.
-13. [AlphaTuning: Quantization-Aware Parameter-Efficient Adaptation of Large-Scale Pre-Trained Language Models.](https://arxiv.org/abs/2210.03858)  
-Se Jung Kwon, **Jeonghoon Kim**, Jeongin Bae, Kang Min Yoo, Jin-Hwa Kim, Baeseong Park, Byeongwook Kim, Jung-Woo Ha, Nako Sung, Dongsoo Lee.   
- <code style="color : darkorange">Findings of EMNLP 2022</code>.
-
-
--------
-
-Reviewing
-======
-* International Conference on Machine Learning
-* Neural Information Processing Systems
-* International Conference on Learning Representations
-* Association for Computational Linguistics. 
+{% include home/reviewing.html %}

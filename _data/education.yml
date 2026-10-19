@@ -1,0 +1,25 @@
+# Education (homepage timeline, rendered by _includes/home/education.html). Newest first.
+#
+# HOW TO ADD A DEGREE
+#   Copy a block from its "- degree:" line down to the line before the next "- degree:",
+#   paste it where it belongs and edit it. "advisor" and "note" are optional.
+#   "school" and "advisor" may contain Markdown links: [KAIST](https://www.kaist.ac.kr/en/)
+#   A period containing "expected" gets the highlighted (current) dot.
+#
+# Keep the double quotes around every text value.
+#
+# TEMPLATE — copy to the right place, delete the leading "# " on each line, then edit:
+# - degree: "Degree name"
+#   period: "Mar.2027 - Feb.2029"
+#   school: "University ([Short name](https://...))"
+#   advisor: "Prof. [Name](https://...)"
+#   note: "Optional note."
+#
+# If the site stops updating after an edit, open the repository's Actions tab: a red
+# "pages build and deployment" run means a typo here (usually a missing quote or space).
+
+- degree: "Ph.D. in Artificial Intelligence"
+  period: "Mar.2025 - 2027 (expected)"
+  school: "Korea Advanced Institute of Science and Technology ([KAIST](https://www.kaist.ac.kr/en/))"
+  advisor: "Prof. [Jinwoo Shin](https://alinlab.kaist.ac.kr/shin.html)"
+  note: "Alongside my full-time role at NAVER Cloud, I am pursuing a Ph.D. in AI at KAIST under Prof. Jinwoo Shin, supported by a NAVER Cloud grant."

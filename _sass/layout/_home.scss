@@ -1,0 +1,880 @@
+/* ==========================================================================
+   HOMEPAGE (layout: home)
+   Profile header, section headings, timelines (experience, education),
+   publication list and reviewing list. Colors come from theme/_default.scss
+   and theme/_dark.scss only.
+   ========================================================================== */
+
+$tl-dot                     : 12px;    // timeline dot size
+$tl-dot-top                 : 0.45rem; // puts the dot on the first line of the item title
+
+/*
+   Layout
+   ========================================================================== */
+
+#main.home {
+  max-width: $home-narrow;
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  &::after {
+    content: none;
+  }
+
+  @include breakpoint($home-two-col) {
+    display: grid;
+    grid-template-columns: $home-profile-col minmax(0, 1fr);
+    column-gap: $home-col-gap;
+    align-items: start;
+    max-width: $home-wide;
+    margin-top: 3rem;
+  }
+}
+
+.home__content {
+  min-width: 0;
+}
+
+/*
+   Profile header (compact intro on small screens, sticky column on large ones)
+   ========================================================================== */
+
+.profile {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  align-items: center;
+  column-gap: 1rem;
+  row-gap: 1.1rem;
+  margin: 0 0 2.25rem;
+  padding: 0 0 1.75rem;
+  border-bottom: 1px solid var(--global-border-color);
+
+  @include breakpoint($small) {
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    column-gap: 1.5rem;
+  }
+
+  @include breakpoint($home-two-col) {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border-bottom: 0;
+  }
+}
+
+/* sticky only when the whole profile fits in the window */
+@media screen and (min-width: 64em) and (min-height: 44em) {
+  .profile {
+    position: -webkit-sticky;
+    position: sticky;
+    top: $masthead-height + 40px;
+  }
+
+  /* set by assets/js/site-extras.js when the profile is taller than the window */
+  .profile--unpinned {
+    position: static;
+  }
+}
+
+.profile__avatar {
+  margin: 0;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 0 0 1px var(--avatar-ring), 0 10px 24px -14px var(--avatar-shadow);
+  }
+
+  @include breakpoint($home-two-col) {
+    margin-bottom: 1.4rem;
+
+    img {
+      border-radius: 12px;
+    }
+  }
+}
+
+.profile__id {
+  min-width: 0;
+}
+
+.profile__name {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+
+  @include breakpoint($home-two-col) {
+    font-size: 1.55rem;
+  }
+}
+
+.profile__pronouns,
+.profile__bio {
+  margin: 0.35rem 0 0;
+  color: var(--global-text-color);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
+.profile__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.9rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+
+  li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0;
+  }
+
+  i {
+    width: 1em;
+    color: var(--text-subtle);
+    font-size: 0.9em;
+    text-align: center;
+  }
+
+  @include breakpoint($home-two-col) {
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-top: 0.9rem;
+  }
+}
+
+.profile__links {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin: 0;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 2.75rem;
+    padding: 0 0.65rem;
+    color: var(--text-strong);
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    background: var(--global-bg-color);
+    border: 1px solid var(--global-border-color);
+    border-radius: 999px;
+    -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+            transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+
+    i {
+      width: 1.1em;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .ai {
+      width: 0.92em;
+      font-size: 1.2em;
+    }
+
+    &:hover {
+      color: var(--accent-on-weak);
+      background: var(--accent-weak);
+      border-color: var(--accent-weak-border);
+
+      i {
+        color: inherit;
+      }
+    }
+  }
+
+  @include breakpoint($home-two-col) {
+    display: block;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--global-border-color);
+
+    li + li {
+      margin-top: 0.1rem;
+    }
+
+    a {
+      display: flex;
+      min-height: 2.3rem;
+      margin: 0 -0.6rem;
+      padding: 0 0.6rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      background: transparent;
+      border: 0;
+      border-radius: 8px;
+
+      &:hover {
+        color: var(--accent);
+        background: var(--surface);
+      }
+    }
+  }
+}
+
+/*
+   Content: section headings and About text
+   ========================================================================== */
+
+.home__content {
+  h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin: 3.5rem 0 1.4rem;
+    font-size: 1.3rem;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+
+    &::after {
+      content: "";
+      flex: 1 1 auto;
+      height: 1px;
+      background: var(--global-border-color);
+    }
+  }
+
+  > h2:first-child {
+    margin-top: 0;
+  }
+
+  > p {
+    margin: 0 0 1.15rem;
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
+
+  /* About: the first paragraph under the first heading is set a size up, as the page's intro */
+  > h2:first-child + p {
+    color: var(--text-strong);
+
+    @include breakpoint($small) {
+      font-size: 1.1rem;
+      line-height: 1.68;
+    }
+  }
+
+  > blockquote {
+    margin: 0 0 1.6rem;
+    padding: 0.15rem 0 0.15rem 1.1rem;
+    color: var(--text-strong);
+    font-family: $quote-serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.55;
+    text-wrap: balance;
+    border-left: 3px solid var(--accent);
+
+    p {
+      margin: 0;
+    }
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--accent-underline);
+    text-underline-offset: 0.2em;
+
+    &:hover {
+      color: var(--accent-strong);
+      text-decoration-color: currentColor;
+    }
+  }
+}
+
+/*
+   Timeline (Work Experience, Education)
+   ========================================================================== */
+
+.timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline__item {
+  position: relative;
+  margin: 0;
+  padding: 0 0 2rem 1.75rem;
+
+  &:last-child {
+    padding-bottom: 0.25rem;
+  }
+
+  /* rail: from below this dot to just above the next one */
+  &::before {
+    content: "";
+    position: absolute;
+    left: ($tl-dot / 2) - 1px;
+    top: calc(#{$tl-dot-top} + #{$tl-dot} + 4px);
+    bottom: calc(4px - #{$tl-dot-top});
+    width: 2px;
+    background: var(--timeline-line);
+    border-radius: 2px;
+  }
+
+  &:last-child::before {
+    display: none;
+  }
+
+  /* dot */
+  &::after {
+    content: "";
+    position: absolute;
+    top: $tl-dot-top;
+    left: 0;
+    width: $tl-dot;
+    height: $tl-dot;
+    box-sizing: border-box;
+    background: var(--global-bg-color);
+    border: 2px solid var(--timeline-dot);
+    border-radius: 50%;
+  }
+
+  &.is-current::after {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-weak);
+  }
+}
+
+.timeline__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.1rem 1rem;
+}
+
+.timeline__title {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.timeline__period {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.timeline__role,
+.timeline__detail {
+  margin: 0.15rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.timeline__note {
+  margin: 0.5rem 0 0;
+  font-size: 0.92rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.timeline__points {
+  margin: 0.7rem 0 0;
+  padding-left: 1.1rem;
+  list-style-type: disc;
+
+  li {
+    margin: 0.35rem 0 0;
+    padding-left: 0.15rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  li::marker {
+    color: var(--text-subtle);
+  }
+
+  ul {
+    margin: 0.3rem 0 0;
+    padding-left: 1.1rem;
+    list-style-type: circle;
+  }
+}
+
+.refs {
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* small headings inside one entry: "Promotions", and "items_label" (e.g. "Research") */
+.home__content .timeline__label {
+  margin: 1.2rem 0 0;
+  color: var(--text-subtle);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.timeline__label + .timeline__points {
+  margin-top: 0.35rem;
+}
+
+/* Promotions: the roles held inside one job, newest first, as a short inner timeline
+   (small dots on a thin line, LinkedIn style). Each row: title and year, team below. */
+$st-dot                     : 8px;     // inner dot size
+$st-gap                     : 3px;     // space between a dot and the line
+
+.steps {
+  margin: 0.55rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps__item {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin: 0;
+  padding: 0 0 0.7rem 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  /* line: from below this dot to just above the next one (first line centre = 0.75em) */
+  &::before {
+    content: "";
+    position: absolute;
+    left: ($st-dot / 2) - 1px;
+    top: calc(0.75em + #{($st-dot / 2) + $st-gap});
+    bottom: calc(#{($st-dot / 2) + $st-gap} - 0.75em);
+    width: 2px;
+    background: var(--timeline-line);
+    border-radius: 2px;
+  }
+
+  &:last-child::before {
+    display: none;
+  }
+
+  /* dot */
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(0.75em - #{$st-dot / 2});
+    left: 0;
+    width: $st-dot;
+    height: $st-dot;
+    box-sizing: border-box;
+    background: var(--global-bg-color);
+    border: 2px solid var(--timeline-dot);
+    border-radius: 50%;
+  }
+
+  /* newest role of a current job: same look as the current job's dot, smaller */
+  &.is-current::after {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-weak);
+  }
+}
+
+.steps__what {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.steps__title {
+  display: block;
+  color: var(--text-strong);
+  font-weight: 600;
+}
+
+.steps__team {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+/* one line from 768px up ("Title — Team", year at the right); two lines on phones */
+.steps__sep {
+  display: none;
+  color: var(--text-subtle);
+}
+
+@include breakpoint($medium) {
+  .steps__title,
+  .steps__team {
+    display: inline;
+  }
+
+  .steps__sep {
+    display: inline;
+  }
+}
+
+.steps__year {
+  flex: 0 0 auto;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/*
+   Publications
+   ========================================================================== */
+
+.pubs__legend {
+  margin: -0.5rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.pubs__group {
+  margin: 1.75rem 0 0.35rem;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.pub-list {
+  margin: 0 -0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.pub {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  column-gap: 0.8rem;
+  margin: 0;
+  padding: 0.75rem 0.75rem;
+  border-radius: 12px;
+  -webkit-transition: background-color 0.15s ease;
+          transition: background-color 0.15s ease;
+
+  &:hover,
+  &:focus-within {
+    background: var(--surface-hover);
+  }
+
+  &:target {
+    background: var(--target-bg);
+    box-shadow: inset 3px 0 0 var(--accent);
+  }
+}
+
+.pub__num {
+  color: var(--text-subtle);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.45rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.pub__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.65rem;
+  margin: 0 0 0.4rem;
+}
+
+.pub__venue {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.45rem;
+  padding: 0.05rem 0.5rem;
+  color: var(--accent-on-weak);
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.015em;
+  line-height: 1.3;
+  white-space: nowrap;
+  background: var(--accent-weak);
+  border: 1px solid var(--accent-weak-border);
+  border-radius: 6px;
+
+  &--preprint {
+    color: var(--badge-neutral-text);
+    background: var(--badge-neutral-bg);
+    border-color: var(--badge-neutral-border);
+  }
+}
+
+.pub__note {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* link buttons under the authors (Paper / arXiv / Code / Model) */
+.pub__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.55rem 0 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin: 0;
+  }
+}
+
+.home__content .pub__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  min-height: 1.75rem; /* 28px target */
+  padding: 0 0.6rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid var(--global-border-color);
+  border-radius: 6px;
+  -webkit-transition: background-color 0.15s ease, border-color 0.15s ease;
+          transition: background-color 0.15s ease, border-color 0.15s ease;
+
+  i {
+    font-size: 0.8em;
+    opacity: 0.75;
+  }
+
+  &:hover {
+    color: var(--accent-strong);
+    text-decoration: none;
+    background: var(--accent-weak);
+    border-color: var(--accent-weak-border);
+  }
+}
+
+.home__content .pub__title {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-wrap: pretty;
+
+  /* a light, always-visible underline so titles read as links on touch screens too */
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--accent-underline);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+
+    &:hover {
+      color: var(--accent);
+      text-decoration-color: currentColor;
+    }
+  }
+}
+
+.pub__authors {
+  margin: 0.3rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.pub__author {
+  white-space: nowrap;
+}
+
+.pub__me {
+  color: var(--text-strong);
+  font-weight: 650;
+}
+
+/*
+   Reviewing
+   ========================================================================== */
+
+.review-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.55rem 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0.55em;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+  }
+}
+
+/*
+   Small screens
+   ========================================================================== */
+
+@include breakpoint(max-width ($small - 1px)) {
+  .pub-list {
+    margin: 0 -0.5rem;
+  }
+
+  .pub {
+    grid-template-columns: 1.25rem minmax(0, 1fr);
+    column-gap: 0.6rem;
+    padding: 0.8rem 0.5rem;
+  }
+
+  .home__content h2 {
+    margin-top: 3rem;
+  }
+
+  .timeline__head {
+    display: block;
+  }
+
+  .timeline__period {
+    margin-top: 0.05rem;
+    font-size: 0.8rem;
+  }
+
+  .steps__year {
+    font-size: 0.8rem;
+  }
+
+  /* a long venue name wraps instead of widening the page */
+  .pub__venue {
+    white-space: normal;
+    max-width: 100%;
+  }
+}
+
+/*
+   Print
+   ========================================================================== */
+
+@media print {
+  .theme-toggle,
+  .skip-to-content {
+    display: none;
+  }
+
+  .profile {
+    position: static;
+  }
+}
+
+/*
+   Cross-references, missing ids, print
+   ========================================================================== */
+
+/* bigger hit area for the [N] links under Work Experience */
+.refs {
+  word-spacing: 0.45em;
+}
+
+.refs a {
+  display: inline-block;
+  padding: 0.3em 0.25em;
+  margin: -0.3em -0.2em;
+}
+
+/* an unknown paper id in _data/experience.yml shows up instead of silently disappearing */
+.xref-missing {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+@media print {
+  /* the masthead and footer are not printed: drop the space the scripts keep for them */
+  body {
+    padding-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #main.home {
+    margin-top: 0;
+  }
+
+  /* a heading stays with what follows it, and a paper or a timeline entry is not split
+     across pages ... */
+  .home__content h2,
+  .pubs__legend,
+  .pubs__group {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .pub,
+  .timeline__item,
+  .timeline__points li {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* ... except a long entry (5 or more bullets), which may continue on the next page
+     instead of leaving half a page blank */
+  .timeline__item:has(li:nth-child(5)) {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .pub__links {
+    display: none;
+  }
+}

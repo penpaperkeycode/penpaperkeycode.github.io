@@ -1,0 +1,25 @@
+{%- comment -%}
+  "Education" timeline. Content lives in _data/education.yml.
+{%- endcomment -%}
+<section class="home-section" aria-labelledby="education">
+<h2 id="education">Education</h2>
+<ol class="timeline" role="list">
+  {%- for edu in site.data.education %}
+  <li class="timeline__item{% if edu.period contains 'expected' %} is-current{% endif %}">
+    <div class="timeline__head">
+      <h3 class="timeline__title">{{ edu.degree | escape }}</h3>
+      <p class="timeline__period">{{ edu.period | escape }}</p>
+    </div>
+    {%- if edu.school %}
+    <p class="timeline__role">{% include home/inline.html text=edu.school %}</p>
+    {%- endif -%}
+    {%- if edu.advisor %}
+    <p class="timeline__detail">Advisor: {% include home/inline.html text=edu.advisor %}</p>
+    {%- endif -%}
+    {%- if edu.note %}
+    <p class="timeline__note">{% include home/inline.html text=edu.note %}</p>
+    {%- endif %}
+  </li>
+  {%- endfor %}
+</ol>
+</section>

@@ -1,0 +1,13 @@
+---
+layout: default
+---
+{%- comment -%}
+  Homepage layout: a profile header (from _config.yml "author:") next to the page content.
+  Desktop: two columns with a sticky profile. Mobile: the profile becomes a compact intro header.
+{%- endcomment -%}
+<main id="main" class="home">
+  {% include home/profile.html %}
+  <div class="home__content">
+    {{ content }}
+  </div>
+</main>

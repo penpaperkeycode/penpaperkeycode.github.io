@@ -20,28 +20,59 @@ $warning-color              : #f89406;
 $border-radius              : 4px;
 $box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
 $global-transition          : all 0.2s ease-in-out;
-$masthead-height            : 70px;
+$masthead-height            : 60px;
 $navicon-width              : 28px;
 $navicon-height             : 4px;
 $sidebar-link-max-width     : 250px;
 $sidebar-screen-min-width   : 1024px;
 
-/* Default light theme for the site */
+/* Default light theme for the site.
+   Every color used by the site is a variable here AND in theme/_dark.scss.
+   Text colors were checked for WCAG AA contrast on the backgrounds they are used on. */
 :root {
+    color-scheme                        : light;
+
+    /* template variables */
     --global-base-color                 : #{$gray};
-    --global-bg-color                   : #fff;
-    --global-footer-bg-color            : #f2f3f3;
-    --global-border-color               : #{$lighter-gray};
-    --global-dark-border-color          : #bdc1c4;
-    --global-code-background-color      : #fafafa;
-    --global-code-text-color            : #{$darker-gray};
-    --global-fig-caption-color          : mix(#fff,  #{$dark-gray}, 25%);
-    --global-link-color                 : #52adc8;
-    --global-link-color-hover           : mix(#000, #2f7f93, 25%);
-    --global-link-color-visited         : mix(#fff, #2f7f93, 25%);  
-    --global-masthead-link-color        : #{$dark-gray};
-    --global-masthead-link-color-hover  : mix(#000, #{$gray}, 25%);    
-    --global-text-color                 : #{$dark-gray};
-    --global-text-color-light           : #{$light-gray};
-    --global-thead-color                : #{$lighter-gray};
+    --global-bg-color                   : #ffffff;
+    --global-footer-bg-color            : #f7f8fa;
+    --global-border-color               : #e4e7eb;
+    --global-dark-border-color          : #d3d8de;
+    --global-code-background-color      : #f6f7f9;
+    --global-code-text-color            : #1f2328;
+    --global-fig-caption-color          : #5b6470;
+    --global-link-color                 : #2453c8;
+    --global-link-color-hover           : #1b3f9e;
+    --global-link-color-visited         : #2453c8;
+    --global-masthead-link-color        : #1f2328;
+    --global-masthead-link-color-hover  : #2453c8;
+    --global-text-color                 : #2b3036;
+    --global-text-color-light           : #5b6470;
+    --global-thead-color                : #f1f3f5;
+
+    /* homepage refresh */
+    --text-strong                       : #14171b;
+    --text-muted                        : #5b6470;
+    --text-subtle                       : #626b77;
+    --accent                            : #2453c8;
+    --accent-strong                     : #1b3f9e;
+    --accent-underline                  : rgba(36, 83, 200, 0.35);
+    --accent-weak                       : #edf2fd;
+    --accent-weak-border                : #d5e0fa;
+    --accent-on-weak                    : #1d47b0;
+    --surface                           : #f6f7f9;
+    --surface-hover                     : #f5f7fa;
+    --badge-neutral-bg                  : #f1f3f5;
+    --badge-neutral-border              : #e1e5ea;
+    --badge-neutral-text                : #4b5563;
+    --timeline-line                     : #e1e5ea;
+    --timeline-dot                      : #8c95a1;
+    --target-bg                         : #f1f5fe;
+    --masthead-bg                       : rgba(255, 255, 255, 0.88);
+    --menu-shadow                       : rgba(16, 24, 40, 0.12);
+    --avatar-ring                       : rgba(20, 23, 27, 0.08);
+    --avatar-shadow                     : rgba(16, 24, 40, 0.10);
+    --focus-ring                        : #2453c8;
+    --selection-bg                      : #d5e0fa;
+    --selection-text                    : #14171b;
 }

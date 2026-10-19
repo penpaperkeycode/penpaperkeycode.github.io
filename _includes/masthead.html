@@ -1,26 +1,31 @@
 {% include base_path %}
 
-<div class="masthead">
+<header class="masthead">
   <div class="masthead__inner-wrap">
+    <a class="masthead__title" href="{{ base_path }}/">{{ site.title }}</a>
+    {%- comment -%}
+      Section links come from _data/navigation.yml. The greedy-nav script (assets/js/main.min.js)
+      moves links that do not fit into the drop-down behind the menu button. The theme toggle is
+      kept outside #site-nav because that script treats every button inside #site-nav as its menu button.
+    {%- endcomment %}
     <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
+      <nav id="site-nav" class="greedy-nav" aria-label="Page sections">
+        <button type="button" class="greedy-nav__toggle hidden" aria-label="More sections" aria-controls="site-nav-menu" aria-expanded="false"><span class="navicon"></span></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="{{ base_path }}/">{{ site.title }}</a></li>
-          {% for link in site.data.navigation.main %}
-            {% if link.url contains 'http' %}
-              {% assign domain = '' %}
-            {% else %}
-              {% assign domain = base_path %}
-            {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-          <li id="theme-toggle" class="masthead__menu-item persist tail">
-            <a><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
-          </li>
+          {%- for link in site.data.navigation.main -%}
+            {%- if link.url contains 'http' -%}
+              {%- assign domain = '' -%}
+            {%- else -%}
+              {%- assign domain = base_path -%}
+            {%- endif %}
+          <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor %}
         </ul>
-        <ul class="hidden-links hidden"></ul>
+        <ul id="site-nav-menu" class="hidden-links hidden"></ul>
       </nav>
     </div>
+    <button type="button" id="theme-toggle" class="theme-toggle" title="Toggle dark mode">
+      <i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true"></i>
+    </button>
   </div>
-</div>
+</header>

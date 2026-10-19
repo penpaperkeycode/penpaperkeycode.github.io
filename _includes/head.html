@@ -13,6 +13,16 @@
 
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  if (window.screen && !window.screen.orientation) {
+    try { Object.defineProperty(window.screen, "orientation", { configurable: true, value: { addEventListener: function () {} } }); } catch (e) {}
+  }
+  (function () {
+    try {
+      var saved = localStorage.getItem("theme");
+      var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (saved === "dark" || (!saved && prefersDark)) { document.documentElement.setAttribute("data-theme", "dark"); }
+    } catch (e) {}
+  })();
 </script>
 
 <!-- For all browsers -->

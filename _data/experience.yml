@@ -1,0 +1,96 @@
+# Work Experience (homepage timeline, rendered by _includes/home/experience.html). Newest first.
+#
+# HOW TO ADD A BULLET
+#   Add a line under the job's "items:", indented like the others:
+#       - "2026: Short description of the milestone."
+#   Text may contain Markdown: **bold** and links such as [2024](https://arxiv.org/abs/2404.01954)
+#
+#   To cite papers from _data/publications.yml, use the two-line form instead
+#   ("papers" lists paper ids; they are shown as linked numbers such as [1, 2, 3]):
+#       - text: "(Current) Pre-training dynamics & Transformer architecture"
+#         papers: [unigram_lens, peri_ln, vocab_imbalance]
+#   A sub-bullet goes under "sub:" of a two-line item (see the NAVER Cloud items below).
+#
+#   "items_label:" (optional) shows a small heading such as FOCUS AREAS above the bullets.
+#   "earlier:" (optional) is a second list in the same format, shown under EARLIER WORK
+#   ("earlier_label:" renames that heading).
+#
+# HOW TO ADD A PROMOTION
+#   Promotions go under the job's "promotions:", NEWEST FIRST (the highest year always gets the
+#   highlighted dot, but the list is shown in the order written). They are shown below the
+#   bullets, under the heading PROMOTIONS, as a small timeline (title, year, team).
+#   Copy these three lines to the top of the list and edit them ("team" is optional):
+#       - year: "2026"
+#         title: "New Title"
+#         team: "Team Name, Division Name"
+#   In a current job (period contains "Present") the newest promotion gets the highlighted dot.
+#
+# HOW TO ADD A JOB
+#   Copy a block from its "- org:" line down to the line before the next "- org:",
+#   paste it at the top of the list and edit it.
+#   "items_label:", "items:" and "promotions:" are optional; delete the ones you don't need.
+#   A job whose period contains "Present" gets the highlighted (current) dot.
+#
+# Keep the double quotes around every text value. Without them, a bullet such as
+#   - 2026: Started ...      (no quotes, contains ": ")
+# is read as a key/value pair. The page still shows such a bullet correctly, but other unquoted
+# text (for example a value starting with "[" or containing ": [") stops the build, so always quote.
+#
+# TEMPLATE — copy to the top of the list, delete the leading "# " on each line, then edit:
+# - org: "Company"
+#   period: "Jan.2027 - Present"
+#   role: "Team, Title"
+#   items_label: "Research"
+#   items:
+#     - "Plain bullet."
+#     - text: "Bullet that cites papers"
+#       papers: [peri_ln, lrq]
+#   earlier:
+#     - "Bullet about earlier work."
+#   promotions:
+#     - year: "2028"
+#       title: "New Title"
+#       team: "Team Name, Division Name"
+#
+# If the site stops updating after an edit, open the repository's Actions tab: a red
+# "pages build and deployment" run means a typo here (usually a missing quote or space).
+
+- org: "NAVER Cloud"
+  period: "Dec.2021 - Present"
+  role: "Foundation Research, Team Leader"
+  items_label: "Focus areas"
+  items:
+    - text: "**LLM Fundamental Research** — Pre-training dynamics & Transformer architecture"
+      papers: [unigram_lens, peri_ln, vocab_imbalance]
+      sub:
+        - "(Early 2026) Designed the team's first mid-training stage, introduced it into model production, and established it as a process continuously applied in production."
+        - "Pathfindings of HyperCLOVA X modeling (Technical Report: [2024](https://arxiv.org/abs/2404.01954), [2025](https://arxiv.org/abs/2506.22403), [2026](https://arxiv.org/abs/2601.01792))"
+    - "**Korean Expert Development** — In charge of improving the Korean-language capabilities of HyperCLOVA X."
+    - "**AudioLLM Mission** — Project Manager for the development of duplex and interaction models."
+  earlier:
+    - text: "(2025) Omni-foundation models and multilinguality of large-scale Transformers"
+      papers: [hcx_8b_omni]
+      sub:
+        - "Also serves as Mission Lead for Omni-Pathfinding."
+    - text: "(2021–2023) Model compression & quantization"
+      papers: [lrq, rethinking_channel, peqa, flexround]
+  promotions:
+    - year: "2025"
+      title: "Team Leader"
+      team: "Foundation Research Team, Hyperscale AI Division"
+    - year: "2024"
+      title: "Technical Leader"
+      team: "Foundation Research Team"
+    - year: "2023"
+      title: "Technical Leader"
+      team: "Hyperscale AI Efficiency Team"
+
+- org: "LG Energy Solution"
+  period: "Nov.2020 - Nov.2021"
+  role: "Business Strategy, Data Scientist"
+
+- org: "Nepes"
+  period: "Jan.2018 - Oct.2020"
+  role: "Future Intelligence, Researcher"
+  items:
+    - "Military service (South Korea)."

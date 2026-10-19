@@ -1,0 +1,42 @@
+{%- comment -%}
+  Homepage profile header. Everything here comes from "author:" in _config.yml
+  (photo, name, bio, employer, location and the profile links).
+{%- endcomment -%}
+{%- include base_path -%}
+{%- assign author = site.author -%}
+{%- if author.avatar contains "://" -%}
+  {%- assign avatar_src = author.avatar -%}
+{%- else -%}
+  {%- assign avatar_src = author.avatar | prepend: "/images/" | prepend: base_path -%}
+{%- endif -%}
+<header class="profile">
+  <div class="profile__avatar">
+    <img src="{{ avatar_src }}" alt="{{ author.name }}" width="800" height="800">
+  </div>
+  <div class="profile__id">
+    <h1 class="profile__name">{{ author.name }}</h1>
+    {%- if author.pronouns %}<p class="profile__pronouns">{{ author.pronouns }}</p>{% endif -%}
+    {%- if author.bio %}<p class="profile__bio">{{ author.bio }}</p>{% endif -%}
+    {%- if author.employer or author.location %}
+    <ul class="profile__meta">
+      {%- if author.employer %}<li><i class="fa-solid fa-briefcase" aria-hidden="true"></i><span>{{ author.employer }}</span></li>{% endif -%}
+      {%- if author.location %}<li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>{{ author.location }}</span></li>{% endif -%}
+    </ul>
+    {%- endif %}
+  </div>
+  <ul class="profile__links" aria-label="Profile links">
+    {%- if author.uri %}<li><a target="_blank" rel="noopener noreferrer" href="{{ author.uri }}"><i class="fa-solid fa-link" aria-hidden="true"></i><span>{{ site.data.ui-text[site.locale].website_label | default: "Website" }}</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
+    {%- if author.email %}<li><a target="_blank" rel="noopener noreferrer" href="mailto:{{ author.email }}"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>{{ site.data.ui-text[site.locale].email_label | default: "Email" }}</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
+    {%- if author.googlescholar %}<li><a target="_blank" rel="noopener noreferrer" href="{{ author.googlescholar }}"><i class="ai ai-google-scholar" aria-hidden="true"></i><span>Google Scholar</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
+    {%- if author.semantic %}<li><a target="_blank" rel="noopener noreferrer" href="{{ author.semantic }}"><i class="ai ai-semantic-scholar" aria-hidden="true"></i><span>Semantic Scholar</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
+    {%- if author.orcid %}<li><a target="_blank" rel="noopener noreferrer" href="{{ author.orcid }}"><i class="ai ai-orcid" aria-hidden="true"></i><span>ORCID</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
+    {%- if author.arxiv %}<li><a target="_blank" rel="noopener noreferrer" href="{{ author.arxiv }}"><i class="ai ai-arxiv" aria-hidden="true"></i><span>arXiv</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
+    {%- if author.researchgate %}<li><a target="_blank" rel="noopener noreferrer" href="{{ author.researchgate }}"><i class="fa-brands fa-researchgate" aria-hidden="true"></i><span>ResearchGate</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
+    {%- if author.github %}<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/{{ author.github }}"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
+    {%- if author.linkedin %}<li><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/{{ author.linkedin }}"><i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
+    {%- if author.twitter %}<li><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/{{ author.twitter }}"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i><span>X (Twitter)</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
+    {%- if author.bluesky %}<li><a target="_blank" rel="noopener noreferrer" href="https://bsky.app/profile/{{ author.bluesky }}"><i class="fa-brands fa-bluesky" aria-hidden="true"></i><span>Bluesky</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
+    {%- if author.mastodon %}<li><a target="_blank" rel="noopener noreferrer" href="{{ author.mastodon }}"><i class="fa-brands fa-mastodon" aria-hidden="true"></i><span>Mastodon</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
+    {%- if author.youtube %}<li><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@{{ author.youtube }}"><i class="fa-brands fa-youtube" aria-hidden="true"></i><span>YouTube</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
+  </ul>
+</header>

@@ -1,0 +1,36 @@
+{%- comment -%}
+  One labelled bullet list inside a Work Experience entry (used for "items" and "earlier").
+  Params: items (list), label (optional small heading), id (heading id).
+  An item is a plain string or {text, papers, sub}; "papers" holds ids from _data/publications.yml
+  (rendered as numbered links to #pub-N via all_pubs, assigned in home/experience.html).
+{%- endcomment -%}
+{%- if include.label %}
+    <h4 class="timeline__label" id="{{ include.id }}">{{ include.label | escape }}</h4>
+{%- endif %}
+    <ul class="timeline__points"{% if include.label %} aria-labelledby="{{ include.id }}"{% endif %}>
+      {%- for item in include.items -%}
+        {%- if item.text -%}{%- assign item_text = item.text -%}{%- else -%}{%- assign item_text = item -%}{%- endif %}
+      <li>{% include home/inline.html text=item_text %}
+        {%- if item.papers -%}&nbsp;<span class="refs">[
+          {%- for key in item.papers -%}
+            {%- assign found = false -%}
+            {%- for p in all_pubs -%}
+              {%- if p.id == key -%}
+                {%- assign found = true -%}
+                <a href="#pub-{{ forloop.index }}" title="{{ p.title | escape }}" aria-label="Publication {{ forloop.index }}">{{ forloop.index }}</a>
+              {%- endif -%}
+            {%- endfor -%}
+            {%- unless found -%}<span class="xref-missing" title="Unknown paper id in _data/experience.yml: {{ key | escape }}">??</span>{%- endunless -%}
+            {%- unless forloop.last %}, {% endunless -%}
+          {%- endfor -%}
+        ]</span>{%- endif -%}
+        {%- if item.sub %}
+        <ul>
+          {%- for sub in item.sub %}
+          <li>{% include home/inline.html text=sub %}</li>
+          {%- endfor %}
+        </ul>
+        {%- endif -%}
+      </li>
+      {%- endfor %}
+    </ul>

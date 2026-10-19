@@ -170,92 +170,141 @@
 
 /*
    Priority plus navigation
+   (assets/js/main.min.js moves links that do not fit into .hidden-links
+   and shows the menu button; it measures .visible-links, so that list
+   must keep its natural width)
    ========================================================================== */
 
 .greedy-nav {
   position: relative;
-  min-width: 250px;
-  background: var(--global-bg-color);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
 
   a {
     display: block;
-    margin: 0 1rem;
-    padding: 0.5rem 0;
-    color: var(--global-masthead-link-color);
+    color: var(--text-muted);
     text-decoration: none;
+  }
 
-    &:hover {
-      color: var(--global-masthead-link-color-hover);
+  /* menu button (shown by the script only when links overflow) */
+  > button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 2.75rem; /* 44px touch target */
+    height: 2.75rem;
+    margin-top: -1.375rem; /* half of the 2.75rem height */
+    padding: 0;
+    color: var(--text-strong);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 100;
+
+    &:hover,
+    &.close {
+      background: var(--surface);
+      border-color: var(--global-border-color);
     }
   }
 
-  button {
-    position: absolute;
-    height: 2.5rem;
-    right: 0;
-    padding: 0 0.5rem;
-    border: 0;
-    outline: none;
-    background-color: var(--global-base-color);
-    color: #fff;
-    cursor: pointer;
-    z-index: 100;
+  .navicon {
+    display: block;
+    width: 1.1rem;
+    height: 2px;
+    margin: auto;
+    background: currentColor;
+    border-radius: 2px;
+
+    &:before,
+    &:after {
+      width: 1.1rem;
+      height: 2px;
+      background: currentColor;
+      border-radius: 2px;
+    }
+
+    &:before {
+      top: -6px;
+    }
+
+    &:after {
+      bottom: -6px;
+    }
+  }
+
+  .close .navicon {
+    background: transparent;
+
+    &:before,
+    &:after {
+      top: 0;
+      width: 1.1rem;
+    }
+  }
+
+  /* leave room for the menu button while it is visible */
+  > button:not(.hidden) ~ .visible-links {
+    margin-right: 3rem;
   }
 
   .visible-links {
-    display: table;
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: 0.15rem;
 
     li {
-      display: table-cell;
-      vertical-align: middle;
-
-      &:first-child {
-        font-weight: bold;
-        text-wrap: wrap;
-
-        a {
-          margin-left: 0;
-        }
-      }
-
-      &:last-child {
-        a {
-          margin-right: 0;
-        }
-      }
-    }
-
-    #theme-toggle {
-      a {
-        width: 25px;
-        display: flex;
-        justify-content: center;
-        cursor: pointer;
-      }
+      display: block;
+      margin: 0;
     }
 
     a {
       position: relative;
+      padding: 0.45rem 0.65rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      line-height: 1.4;
+      border-radius: 8px;
+      -webkit-transition: color 0.15s ease, background-color 0.15s ease;
+              transition: color 0.15s ease, background-color 0.15s ease;
 
-      &:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 4px;
-        background: var(--global-border-color);
-        width: 100%;
-        -webkit-transition: $global-transition;
-        transition: $global-transition;
-        -webkit-transform: scaleX(0);
-            -ms-transform: scaleX(0);
-                transform: scaleX(0); /* hide*/
+      &:hover {
+        color: var(--text-strong);
+        background: var(--surface);
       }
 
-      &:hover:before {
-        -webkit-transform: scaleX(1);
-            -ms-transform: scaleX(1);
-                transform: scaleX(1); /* reveal*/
+      /* section in view (class set by assets/js/site-extras.js): a bar on the masthead's bottom edge */
+      &.is-active {
+        color: var(--text-strong);
+
+        &::after {
+          content: "";
+          position: absolute;
+          z-index: 1;
+          left: 0.65rem;
+          right: 0.65rem;
+          bottom: calc((100% - #{$masthead-height}) / 2);
+          height: 2px;
+          background: var(--accent);
+          border-radius: 2px 2px 0 0;
+        }
+      }
+
+      /* wider hit area on phones; also makes every link move into the menu there */
+      @include breakpoint(max-width ($small - 1px)) {
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
+
+        &.is-active::after {
+          left: 0.9rem;
+          right: 0.9rem;
+        }
       }
     }
   }
@@ -264,56 +313,43 @@
     position: absolute;
     top: 100%;
     right: 0;
-    margin-top: 15px;
-    padding: 5px;
+    min-width: 13rem;
+    max-height: calc(100vh - 4.5rem); /* scrollable at high zoom on short windows */
+    overflow-y: auto;
+    margin-top: 0.4rem;
+    padding: 0.35rem;
+    background: var(--global-bg-color);
     border: 1px solid var(--global-border-color);
-    border-radius: $border-radius;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(#000, 0.25);
+    border-radius: 12px;
+    box-shadow: 0 12px 32px var(--menu-shadow);
 
-    a {
-      margin: 0;
-      padding: 10px 20px;
-      font-size: $type-size-5;
-
-      &:hover {
-        color: var(--global-masthead-link-color-hover);
-        background: var(--global-border-color);
-      }
-    }
-
-    &:before {
-      content: "";
-      position: absolute;
-      top: -11px;
-      right: 10px;
-      width: 0;
-      border-style: solid;
-      border-width: 0 10px 10px;
-      border-color: var(--global-border-color) transparent;
-      display: block;
-      z-index: 0;
-    }
-
-    &:after {
-      content: "";
-      position: absolute;
-      top: -10px;
-      right: 10px;
-      width: 0;
-      border-style: solid;
-      border-width: 0 10px 10px;
-      border-color: #fff transparent;
-      display: block;
-      z-index: 1;
+    &.hidden {
+      display: none;
     }
 
     li {
       display: block;
-      border-bottom: 1px solid var(--global-border-color);
+      margin: 0;
+    }
 
-      &:last-child {
-        border-bottom: none;
+    a {
+      display: flex;
+      align-items: center;
+      min-height: 2.75rem;
+      padding: 0 0.85rem;
+      color: var(--text-strong);
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 8px;
+
+      &:hover {
+        color: var(--accent);
+        background: var(--surface);
+      }
+
+      &.is-active {
+        color: var(--accent-on-weak);
+        background: var(--accent-weak);
       }
     }
   }
@@ -440,5 +476,18 @@
     @include breakpoint($medium) {
       display: block;
     }
+  }
+}
+/* Windows High Contrast / forced colors: keep the hamburger and the X visible */
+@media (forced-colors: active) {
+  .greedy-nav .navicon,
+  .greedy-nav .navicon:before,
+  .greedy-nav .navicon:after {
+    forced-color-adjust: none;
+    background: ButtonText;
+  }
+
+  .greedy-nav .close .navicon {
+    background: transparent;
   }
 }

@@ -1,0 +1,288 @@
+# Publications (homepage section, rendered by _includes/home/publications.html)
+#
+# HOW TO ADD A PAPER
+#   1. Copy an existing entry: from its "- id:" line down to the line before the next "- id:".
+#   2. Paste it into "lead:" or "coauthor:" where it should appear (papers are shown top to bottom).
+#   3. Edit the values. Keep the double quotes around every value.
+#   Numbers (1, 2, 3, ...) are assigned automatically: lead papers first, then co-author papers,
+#   and the [N] references under Work Experience follow automatically.
+#
+# FIELDS
+#   id       short unique name (letters, digits, _). Work Experience cites papers by this id.
+#   title    paper title, no trailing period
+#   url      link opened by the title (the official paper page if there is one, else arXiv)
+#   authors  author list as it should appear; "*" marks equal contribution.
+#            Names listed under "highlight:" below are shown in bold automatically.
+#   venue    e.g. "ICML 2025" or "Arxiv (preprint, 2025)". Venues containing "Arxiv"
+#            get a grey badge, all others a blue one.
+#   note     (optional) short remark shown next to the venue, e.g. "Corresponding author."
+#   links    (optional) buttons shown under the authors, each with a label and a url.
+#            Use the labels "Paper", "arXiv", "Code" or "Model":
+#              links:
+#                - label: "Code"
+#                  url: "https://github.com/..."
+#
+# A double quote inside a value must be written as \"  (example: "Say \"I Don't Know\"").
+# If the site stops updating after an edit, open the repository's Actions tab: a red
+# "pages build and deployment" run means a typo here (usually a missing quote or space).
+
+# TEMPLATE — copy these lines into "lead:" or "coauthor:", delete the leading "# " on each line,
+# then fill in the values (delete optional lines you don't need):
+#   - id: new_paper_id
+#     title: "Paper Title"
+#     url: "https://..."
+#     authors: "First Author*, Jeonghoon Kim*, Third Author"
+#     venue: "Conference 2027"
+#     note: "Optional remark."
+#     links:
+#       - label: "Paper"
+#         url: "https://..."
+#       - label: "arXiv"
+#         url: "https://arxiv.org/abs/..."
+#       - label: "Code"
+#         url: "https://github.com/..."
+# Every paper starts with "- id:" at the same indentation as the other papers.
+
+highlight:
+  - "Jeonghoon Kim"
+  - "HyperCLOVA X Team"
+
+lead:
+  - id: unigram_lens
+    title: "A Simple Unigram Cross-Entropy Lens on the Lexical Imprint of Pre-training Data"
+    url: "https://neurips.cc/virtual/2026/poster/155069"
+    authors: "Jeonghoon Kim*, Woojin Chung*, Woomin Song, Cheonbok Park, Nako Sung, Jinwoo Shin"
+    venue: "NeurIPS 2026"
+    links:
+      - label: "Paper"
+        url: "https://neurips.cc/virtual/2026/poster/155069"
+      - label: "arXiv (earlier version)"
+        url: "https://arxiv.org/abs/2602.10657"
+
+  - id: peri_ln
+    title: "Peri-LN: Revisiting Normalization Layer in the Transformer Architecture"
+    url: "https://proceedings.mlr.press/v267/kim25u.html"
+    authors: "Jeonghoon Kim, Byeongchan Lee, Cheonbok Park, Yeontaek Oh, Beomjun Kim, Taehwan Yoo, Seongjin Shin, Dongyoon Han, Jinwoo Shin, Kang Min Yoo"
+    venue: "ICML 2025"
+    links:
+      - label: "Paper"
+        url: "https://proceedings.mlr.press/v267/kim25u.html"
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2502.02732"
+
+  - id: vocab_imbalance
+    title: "Exploiting Vocabulary Frequency Imbalance in Language Model Pre-training"
+    url: "https://proceedings.neurips.cc/paper_files/paper/2025/hash/c911506647555da03db9c5277cd2221d-Abstract-Conference.html"
+    authors: "Woojin Chung*, Jeonghoon Kim*"
+    venue: "NeurIPS 2025"
+    links:
+      - label: "Paper"
+        url: "https://proceedings.neurips.cc/paper_files/paper/2025/hash/c911506647555da03db9c5277cd2221d-Abstract-Conference.html"
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2508.15390"
+      - label: "Code"
+        url: "https://github.com/Chung-Kim/vocab-imbalance"
+
+  - id: lrq
+    title: "LRQ: Optimizing Post-Training Quantization for Large Language Models by Learning Low-Rank Weight-Scaling Matrices"
+    url: "https://aclanthology.org/2025.naacl-long.393/"
+    authors: "Jung Hyun Lee*, Jeonghoon Kim*, June Yong Yang, Se Jung Kwon, Eunho Yang, Kang Min Yoo, Dongsoo Lee"
+    venue: "NAACL 2025"
+    links:
+      - label: "Paper"
+        url: "https://aclanthology.org/2025.naacl-long.393/"
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2407.11534"
+
+  - id: rethinking_channel
+    title: "Rethinking Channel Dimensions to Isolate Outliers for Low-bit Weight Quantization of Large Language Models"
+    url: "https://openreview.net/forum?id=JzG7kSpjJk"
+    authors: "Jung Hwan Heo*, Jeonghoon Kim*, Beomseok Kwon, Byeongwook Kim, Se Jung Kwon, Dongsoo Lee"
+    venue: "ICLR 2024"
+    note: "Mentorship program"
+    links:
+      - label: "Paper"
+        url: "https://openreview.net/forum?id=JzG7kSpjJk"
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2309.15531"
+      - label: "Code"
+        url: "https://github.com/johnheo/adadim-llm"
+
+  - id: peqa
+    title: "Memory-Efficient Fine-Tuning of Compressed Large Language Models via sub-4-bit Integer Quantization"
+    url: "https://proceedings.neurips.cc/paper_files/paper/2023/hash/7183f4fc87598f6c6e947b96714acbd6-Abstract-Conference.html"
+    authors: "Jeonghoon Kim*, Jung Hyun Lee*, Sungdong Kim, Joonsuk Park, Kang Min Yoo, Se Jung Kwon, Dongsoo Lee"
+    venue: "NeurIPS 2023"
+    links:
+      - label: "Paper"
+        url: "https://proceedings.neurips.cc/paper_files/paper/2023/hash/7183f4fc87598f6c6e947b96714acbd6-Abstract-Conference.html"
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2305.14152"
+
+  - id: flexround
+    title: "FlexRound: Learnable Rounding based on Element-wise Division for Post-Training Quantization"
+    url: "https://proceedings.mlr.press/v202/lee23h.html"
+    authors: "Jung Hyun Lee*, Jeonghoon Kim*, Se Jung Kwon, Dongsoo Lee"
+    venue: "ICML 2023"
+    links:
+      - label: "Paper"
+        url: "https://proceedings.mlr.press/v202/lee23h.html"
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2306.00317"
+
+  - id: crosslingual_collapse
+    title: "Cross-lingual Collapse: How Language-Centric Foundation Models Shape Reasoning in Large Language Models"
+    url: "https://arxiv.org/abs/2506.05850"
+    authors: "Cheonbok Park*, Jeonghoon Kim*, Joosung Lee, Sanghwan Bae, Jaegul Choo, Kang Min Yoo"
+    venue: "Arxiv (preprint, 2025)"
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2506.05850"
+
+coauthor:
+  - id: hcx_8b_omni
+    title: "HyperCLOVA X 8B Omni"
+    url: "https://arxiv.org/abs/2601.01792"
+    authors: "HyperCLOVA X Team"
+    venue: "Technical report (Arxiv, 2026)"
+    note: "Lead of the Omni-pathfinding mission."
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2601.01792"
+      - label: "Model"
+        url: "https://huggingface.co/naver-hyperclovax/HyperCLOVAX-SEED-Omni-8B"
+
+  - id: hcx_32b_think
+    title: "HyperCLOVA X 32B Think"
+    url: "https://arxiv.org/abs/2601.03286"
+    authors: "HyperCLOVA X Team"
+    venue: "Technical report (Arxiv, 2026)"
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2601.03286"
+
+  - id: omniacbench
+    title: "OmniACBench: A Benchmark for Evaluating Context-Grounded Acoustic Control in Omni-Modal Models"
+    url: "https://arxiv.org/abs/2603.23938"
+    authors: "Seunghee Kim, Bumkyu Park, Kyudan Jung, Joosung Lee, Soyoon Kim, Jeonghoon Kim, Taeuk Kim, Hwiyeol Jo"
+    venue: "EMNLP 2026"
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2603.23938"
+
+  - id: knowledge_weighted_ft
+    title: "What Models Know, How Well They Know It: Knowledge-Weighted Fine-Tuning for Learning When to Say \"I Don't Know\""
+    url: "https://arxiv.org/abs/2604.05779"
+    authors: "Joosung Lee, Hwiyeol Jo, Donghyeon Ko, Kyubyung Chae, Cheonbok Park, Jeonghoon Kim"
+    venue: "Findings of EMNLP 2026"
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2604.05779"
+
+  - id: parapairaudiobench
+    title: "ParaPairAudioBench: Paralinguistic Pairwise Audio Benchmark for LALM-as-a-Judge"
+    url: "https://www.isca-archive.org/interspeech_2026/jeon26d_interspeech.html"
+    authors: "Jisu Jeon, Seungyeon Jwa, Joosung Lee, Jinhyeon Kim, Woojin Chung, Hwiyeol Jo, Jeonghoon Kim, Jonghyun Choi, Soyoon Kim"
+    venue: "Interspeech 2026"
+    links:
+      - label: "Paper"
+        url: "https://www.isca-archive.org/interspeech_2026/jeon26d_interspeech.html"
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2606.24648"
+
+  - id: sommelier
+    title: "Sommelier: Scalable Open Multi-turn Audio Pre-processing for Full-duplex Speech Language Models"
+    url: "https://aclanthology.org/2026.acl-industry.18/"
+    authors: "Kyudan Jung, Jihwan Kim, Soyoon Kim, Jeonghoon Kim, Jaegul Choo, Cheonbok Park"
+    venue: "ACL 2026 (Industry Track)"
+    links:
+      - label: "Paper"
+        url: "https://aclanthology.org/2026.acl-industry.18/"
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2603.25750"
+
+  - id: reflexicoder
+    title: "ReflexiCoder: Teaching Large Language Models to Self-Reflect on Generated Code and Self-Correct It via Reinforcement Learning"
+    url: "https://aclanthology.org/2026.findings-acl.1872/"
+    authors: "Juyong Jiang, Jiasi Shen, Sunghun Kim, Kang Min Yoo, Jeonghoon Kim, Sungju Kim"
+    venue: "Findings of ACL 2026"
+    note: "Co-corresponding author."
+    links:
+      - label: "Paper"
+        url: "https://aclanthology.org/2026.findings-acl.1872/"
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2603.05863"
+      - label: "Code"
+        url: "https://github.com/juyongjiang/ReflexiCoder"
+
+  - id: hallucination_future_context
+    title: "Enhancing Hallucination Detection via Future Context"
+    url: "https://aclanthology.org/2026.findings-acl.35/"
+    authors: "Joosung Lee, Cheonbok Park, Hwiyeol Jo, Jeonghoon Kim, Joonsuk Park, Kang Min Yoo"
+    venue: "Findings of ACL 2026"
+    links:
+      - label: "Paper"
+        url: "https://aclanthology.org/2026.findings-acl.35/"
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2507.20546"
+
+  - id: reguide
+    title: "ReGUIDE: Data Efficient GUI Grounding via Spatial Reasoning and Search"
+    url: "https://arxiv.org/abs/2505.15259"
+    authors: "Hyunseok Lee, Jeonghoon Kim, Beomjun Kim, Jihoon Tack, Chansong Jo, Jaehong Lee, Cheonbok Park, Sookyo In, Jinwoo Shin, Kang Min Yoo"
+    venue: "Arxiv (preprint, 2025)"
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2505.15259"
+
+  - id: hcx_think
+    title: "HyperCLOVA X THINK Technical Report"
+    url: "https://arxiv.org/abs/2506.22403"
+    authors: "HyperCLOVA X Team"
+    venue: "Technical report (Arxiv, 2025)"
+    note: "Uses the Peri-LN architecture."
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2506.22403"
+
+  - id: lut_gemm
+    title: "LUT-GEMM: Quantized Matrix Multiplication based on LUTs for Efficient Inference in Large-Scale Generative Language Models"
+    url: "https://openreview.net/forum?id=gLARhFLE0F"
+    authors: "Gunho Park, Baeseong Park, Minsub Kim, Sungjae Lee, Jeonghoon Kim, Beomseok Kwon, Se Jung Kwon, Byeongwook Kim, Youngjoo Lee, Dongsoo Lee"
+    venue: "ICLR 2024"
+    links:
+      - label: "Paper"
+        url: "https://openreview.net/forum?id=gLARhFLE0F"
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2206.09557"
+      - label: "Code"
+        url: "https://github.com/naver-aics/lut-gemm"
+
+  - id: hcx_tr
+    title: "HyperCLOVA X Technical Report"
+    url: "https://arxiv.org/abs/2404.01954"
+    authors: "HyperCLOVA X Team"
+    venue: "Technical report (Arxiv, 2024)"
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2404.01954"
+
+  - id: winning_both
+    title: "Winning Both the Accuracy of Floating Point Activation and the Simplicity of Integer Arithmetic"
+    url: "https://openreview.net/forum?id=z92lBy1ehjI"
+    authors: "Yulhwa Kim, Jaeyong Jang, Jehun Lee, Jihoon Park, Jeonghoon Kim, Byeongwook Kim, Baeseong Park, Se Jung Kwon, Dongsoo Lee, Jae-Joon Kim"
+    venue: "ICLR 2023"
+    links:
+      - label: "Paper"
+        url: "https://openreview.net/forum?id=z92lBy1ehjI"
+
+  - id: alphatuning
+    title: "AlphaTuning: Quantization-Aware Parameter-Efficient Adaptation of Large-Scale Pre-Trained Language Models"
+    url: "https://aclanthology.org/2022.findings-emnlp.240/"
+    authors: "Se Jung Kwon, Jeonghoon Kim, Jeongin Bae, Kang Min Yoo, Jin-Hwa Kim, Baeseong Park, Byeongwook Kim, Jung-Woo Ha, Nako Sung, Dongsoo Lee"
+    venue: "Findings of EMNLP 2022"
+    links:
+      - label: "Paper"
+        url: "https://aclanthology.org/2022.findings-emnlp.240/"
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2210.03858"

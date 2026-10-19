@@ -1,0 +1,74 @@
+{%- comment -%}
+  "Work Experience" timeline. Content lives in _data/experience.yml.
+  Each job shows, in this order (all but org/period optional):
+    role         the line under the company name
+    items_label  small heading above the bullets, e.g. "Focus areas"
+    items        bullets; an item is either a plain string or {text, papers, sub}. "papers" holds
+                 ids from _data/publications.yml and is rendered as numbered links to #pub-N.
+    earlier      a second bullet list in the same format, shown under "Earlier work"
+                 (or under earlier_label if given)
+    promotions   list of {year, title, team}, newest first, shown under the heading "Promotions"
+                 as a short inner timeline (an entry without those keys is shown as plain text).
+                 In a current job the newest promotion gets the highlighted dot.
+{%- endcomment -%}
+{%- assign no_list = "" | split: "," -%}
+{%- assign lead_pubs = site.data.publications.lead | default: no_list -%}
+{%- assign co_pubs = site.data.publications.coauthor | default: no_list -%}
+{%- assign all_pubs = lead_pubs | concat: co_pubs -%}
+<section class="home-section" aria-labelledby="work-experience">
+<h2 id="work-experience">Work Experience</h2>
+<ol class="timeline" role="list">
+  {%- for job in site.data.experience %}
+  {%- assign job_id = "job-" | append: forloop.index -%}
+  {%- assign job_current = false -%}
+  {%- if job.period contains 'Present' -%}{%- assign job_current = true -%}{%- endif %}
+  <li class="timeline__item{% if job_current %} is-current{% endif %}">
+    <div class="timeline__head">
+      <h3 class="timeline__title">{{ job.org | escape }}</h3>
+      <p class="timeline__period">{{ job.period | escape }}</p>
+    </div>
+    {%- if job.role %}
+    <p class="timeline__role">{{ job.role | escape }}</p>
+    {%- endif -%}
+    {%- if job.items -%}
+      {%- assign items_id = job_id | append: "-items" %}
+    {% include home/points.html items=job.items label=job.items_label id=items_id %}
+    {%- endif -%}
+    {%- if job.earlier -%}
+      {%- assign earlier_id = job_id | append: "-earlier" -%}
+      {%- assign earlier_label = job.earlier_label | default: "Earlier work" %}
+    {% include home/points.html items=job.earlier label=earlier_label id=earlier_id %}
+    {%- endif %}
+    {%- if job.promotions %}
+    {%- comment -%} the highest year gets the "current" dot, whatever order the entries are in {%- endcomment -%}
+    {%- assign newest_year = 0 -%}
+    {%- for step in job.promotions -%}
+      {%- assign y = step.year | plus: 0 -%}
+      {%- if y > newest_year -%}{%- assign newest_year = y -%}{%- endif -%}
+    {%- endfor -%}
+    {%- assign newest_marked = false %}
+    <h4 class="timeline__label" id="{{ job_id }}-promotions">Promotions</h4>
+    <ol class="steps" role="list" aria-labelledby="{{ job_id }}-promotions">
+      {%- for step in job.promotions %}
+      {%- assign y = step.year | plus: 0 -%}
+      {%- assign is_newest = false -%}
+      {%- if job_current and newest_marked == false and y > 0 and y == newest_year -%}{%- assign is_newest = true -%}{%- assign newest_marked = true -%}{%- endif %}
+      <li class="steps__item{% if is_newest %} is-current{% endif %}">
+        {%- if step.title or step.team or step.year %}
+        <span class="steps__what">
+          {%- if step.title %}<span class="steps__title">{{ step.title | escape }}</span>{% endif -%}
+          {%- if step.title and step.team %}<span class="steps__sep" aria-hidden="true"> — </span><span class="screen-reader-text">, </span>{% endif -%}
+          {%- if step.team %}<span class="steps__team">{% include home/inline.html text=step.team %}</span>{% endif -%}
+        </span>
+        {%- if step.year %}<span class="steps__year"><span class="screen-reader-text">, </span>{{ step.year | escape }}</span>{% endif -%}
+        {%- else %}
+        <span class="steps__what">{% include home/inline.html text=step %}</span>
+        {%- endif %}
+      </li>
+      {%- endfor %}
+    </ol>
+    {%- endif -%}
+  </li>
+  {%- endfor %}
+</ol>
+</section>

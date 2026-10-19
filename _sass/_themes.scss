@@ -15,8 +15,9 @@ $indent-var                 : 1.3em;
 
 /* System typefaces */
 $serif                      : Georgia, Times, serif;
-$sans-serif                 : -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-$monospace                  : Monaco, Consolas, "Lucida Console", monospace;
+$sans-serif                 : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$monospace                  : ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+$quote-serif                : "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
 
 /* Sans serif typefaces */
 $sans-serif-narrow          : $sans-serif;
@@ -54,6 +55,13 @@ $medium                     : 768px !default;
 $medium-wide                : 900px !default;
 $large                      : 925px !default;
 $x-large                    : 1280px !default;
+
+/* Homepage layout (layout: home) */
+$home-two-col               : 1024px;  // profile column + content column from this width up
+$home-narrow                : 44rem;   // max width of the single-column layout
+$home-wide                  : 62rem;   // max width of the two-column layout
+$home-profile-col           : 15rem;   // width of the profile column
+$home-col-gap               : 3.5rem;
 
 /* ==========================================================================
    Grid

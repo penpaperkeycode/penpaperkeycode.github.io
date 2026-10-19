@@ -4,10 +4,11 @@
 
 .masthead {
   position: fixed;
-  background: var(--global-bg-color);
-  height: fit-content;
   top: 0;
   width: 100%;
+  background: var(--masthead-bg);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+          backdrop-filter: saturate(180%) blur(12px);
 
   -webkit-animation: intro 0.3s both;
           animation: intro 0.3s both;
@@ -25,17 +26,17 @@
   }
 
   &__inner-wrap {
-    @include container;
-    @include clearfix;
-    padding: 0.5em 1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: $home-narrow;
+    height: $masthead-height;
+    margin: 0 auto;
+    padding: 0 1rem;
     font-family: $sans-serif-narrow;
 
-    @include breakpoint($x-large) {
-      max-width: $x-large;
-    }
-
-    nav {
-      z-index: 10;
+    @include breakpoint($home-two-col) {
+      max-width: $home-wide;
     }
 
     a {
@@ -44,24 +45,61 @@
   }
 }
 
+.masthead__title {
+  flex: none;
+  color: var(--text-strong);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
 .masthead__menu {
+  flex: 1 1 auto;
+  align-self: stretch; /* full masthead height, so the drop-down opens below the bar */
+  min-width: 0;
+  display: flex;
+  justify-content: flex-end;
 
   ul {
     margin: 0;
     padding: 0;
-    clear: both;
     list-style-type: none;
   }
 }
 
 .masthead__menu-item {
-  background-color: var(--global-bg-color);
   display: block;
   list-style-type: none;
   white-space: nowrap;
+}
 
-  &--lg {
-    padding-right: 2em;
-    font-weight: 700;
+/* light/dark toggle: a real button, so it is reachable with the keyboard */
+.theme-toggle {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem; /* 44px touch target */
+  height: 2.75rem;
+  padding: 0;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+          transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    color: var(--text-strong);
+    background: var(--surface);
+    border-color: var(--global-border-color);
   }
 }

@@ -8,11 +8,11 @@ $dark-gray                  : mix(#000, $gray, 40%);
 $darker-gray                : mix(#000, $gray, 60%);
 $light-gray                 : mix(#fff, $gray, 50%);
 
-$background                 : #474747;
+$background                 : #101318;
 $background-light           : mix(#fff, $background, 80%);
 $background-lighter         : mix(#fff, $background, 90%);
 $text                       : #ffffff;
-$link                       : #0ea1c5;
+$link                       : #8ab4ff;
 $link-dark                  : mix(#000, $link, 25%);
 $link-light                 : mix(#fff, $link, 25%);
 
@@ -27,28 +27,60 @@ $warning-color              : #f89406;
 $border-radius              : 4px;
 $box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
 $global-transition          : all 0.2s ease-in-out;
-$masthead-height            : 70px;
+$masthead-height            : 60px;
 $navicon-width              : 28px;
 $navicon-height             : 4px;
 $sidebar-link-max-width     : 250px;
 $sidebar-screen-min-width   : 1024px;
 
-/* Dark theme for the site */
+/* Dark theme for the site (same variables as theme/_default.scss).
+   Screen only: a printout always uses the light colors of theme/_default.scss. */
+@media screen {
 html[data-theme="dark"] {
-    --global-base-color                 : #{$background};
+    color-scheme                        : dark;
+
+    /* template variables */
+    --global-base-color                 : #2a2f37;
     --global-bg-color                   : #{$background};
-    --global-footer-bg-color            : #{$background};
-    --global-border-color               : #{$light-gray};
-    --global-dark-border-color          : #{$background-light};
-    --global-code-background-color      : #fafafa;
-    --global-code-text-color            : #{$darker-gray};
-    --global-fig-caption-color          : #{$light-gray};
+    --global-footer-bg-color            : #0c0e12;
+    --global-border-color               : #252a32;
+    --global-dark-border-color          : #2f353e;
+    --global-code-background-color      : #171a20;
+    --global-code-text-color            : #e6e8eb;
+    --global-fig-caption-color          : #a3abb6;
     --global-link-color                 : #{$link};
-    --global-link-color-hover           : #{$link-dark};
-    --global-link-color-visited         : #{$link-light};
-    --global-masthead-link-color        : #{$text};
-    --global-masthead-link-color-hover  : #{$background-light};
-    --global-text-color                 : #{$text};
-    --global-text-color-light           : #{$light-gray};
-    --global-thead-color                : #{$background-lighter};
-}
+    --global-link-color-hover           : #b3ceff;
+    --global-link-color-visited         : #{$link};
+    --global-masthead-link-color        : #e6e8eb;
+    --global-masthead-link-color-hover  : #{$link};
+    --global-text-color                 : #d5d9df;
+    --global-text-color-light           : #a3abb6;
+    --global-thead-color                : #1f242c;
+
+    /* homepage refresh */
+    --text-strong                       : #f3f4f6;
+    --text-muted                        : #a3abb6;
+    --text-subtle                       : #8b939e;
+    --accent                            : #{$link};
+    --accent-strong                     : #b3ceff;
+    --accent-underline                  : rgba(138, 180, 255, 0.4);
+    --accent-weak                       : #18213a;
+    --accent-weak-border                : #263452;
+    --accent-on-weak                    : #b9d0ff;
+    --surface                           : #171a20;
+    --surface-hover                     : #151920;
+    --badge-neutral-bg                  : #1d2128;
+    --badge-neutral-border              : #2a3039;
+    --badge-neutral-text                : #c9ced6;
+    --timeline-line                     : #2a3039;
+    --timeline-dot                      : #5d6673;
+    --target-bg                         : #17203a;
+    --masthead-bg                       : rgba(16, 19, 24, 0.84);
+    --menu-shadow                       : rgba(0, 0, 0, 0.5);
+    --avatar-ring                       : rgba(255, 255, 255, 0.08);
+    --avatar-shadow                     : rgba(0, 0, 0, 0.4);
+    --focus-ring                        : #{$link};
+    --selection-bg                      : #263452;
+    --selection-text                    : #f3f4f6;
+}}
+

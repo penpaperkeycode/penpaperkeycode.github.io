@@ -1,0 +1,58 @@
+{%- comment -%}
+  "Publications" section. Content lives in _data/publications.yml.
+  Papers are numbered continuously: lead papers first, then co-author papers.
+  Each paper gets the anchor #pub-N, which Work Experience links to.
+{%- endcomment -%}
+{%- assign pubdata = site.data.publications -%}
+{%- assign no_list = "" | split: "," -%}
+{%- assign highlight = pubdata.highlight | default: no_list -%}
+{%- if highlight.size == 0 -%}{%- assign highlight = site.author.name | split: "|" -%}{%- endif -%}
+{%- assign groups = "lead|coauthor" | split: "|" -%}
+{%- assign n = 0 -%}
+<section class="home-section pubs" aria-labelledby="publications">
+<h2 id="publications">Publications</h2>
+<p class="pubs__legend">*equal contribution</p>
+{%- for group in groups -%}
+  {%- assign papers = pubdata[group] | default: no_list -%}
+  {%- if papers.size > 0 %}
+  <h3 class="pubs__group">{% if group == "lead" %}Lead author{% else %}Co-author{% endif %}</h3>
+  <ol class="pub-list" role="list" start="{{ n | plus: 1 }}">
+    {%- for pub in papers -%}
+      {%- assign n = n | plus: 1 -%}
+      {%- assign venue_key = pub.venue | downcase -%}
+      {%- comment -%} one span per author keeps names on one line; highlighted names in bold {%- endcomment -%}
+      {%- assign author_names = pub.authors | split: "," -%}
+      {%- capture authors -%}
+        {%- for author in author_names -%}
+          {%- assign author_html = author | strip | escape -%}
+          {%- for name in highlight -%}
+            {%- assign name_html = name | escape -%}
+            {%- capture strong_name %}<strong class="pub__me">{{ name_html }}</strong>{% endcapture -%}
+            {%- assign author_html = author_html | replace: name_html, strong_name -%}
+          {%- endfor -%}
+          <span{% if author.size < 40 %} class="pub__author"{% endif %}>{{ author_html }}</span>{% unless forloop.last %}, {% endunless %}
+        {%- endfor -%}
+      {%- endcapture %}
+    <li class="pub" id="pub-{{ n }}">
+      <span class="pub__num">{{ n }}</span>
+      <div class="pub__body">
+        <div class="pub__meta">
+          <span class="pub__venue{% if venue_key contains 'arxiv' %} pub__venue--preprint{% endif %}">{{ pub.venue | escape }}</span>
+          {% if pub.note %}<span class="pub__note">{{ pub.note | escape }}</span>{% endif %}
+        </div>
+        <p class="pub__title">{% if pub.url %}<a href="{{ pub.url }}" target="_blank" rel="noopener noreferrer">{{ pub.title | escape }}<span class="screen-reader-text"> (opens in a new tab)</span></a>{% else %}{{ pub.title | escape }}{% endif %}</p>
+        <p class="pub__authors">{{ authors }}</p>
+        {%- if pub.links %}
+        <ul class="pub__links" role="list">
+          {%- for link in pub.links %}
+          <li><a class="pub__link" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label | escape }}<span class="screen-reader-text">: {{ pub.title | escape }} (opens in a new tab)</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+          {%- endfor %}
+        </ul>
+        {%- endif %}
+      </div>
+    </li>
+    {%- endfor %}
+  </ol>
+  {%- endif -%}
+{%- endfor %}
+</section>

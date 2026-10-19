@@ -1,0 +1,56 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## What this is
+
+This is Jeonghoon Kim's academic homepage (https://penpaperkeycode.github.io). It started from the [AcademicPages](https://github.com/academicpages/academicpages.github.io) Jekyll template (a detached fork of Minimal Mistakes), and the homepage now uses its own layout and data files. There are no tests, linter, or CI build. GitHub Pages builds `master` on every push using the `github-pages` gem (Jekyll 3.10 in safe mode, Ruby Sass 3.7.4, kramdown GFM), so **pushing to `master` publishes the live site**. There is no staging environment. The owner often edits files in GitHub's web editor, so run `git pull` before working locally.
+
+## Commands
+
+```bash
+bundle install                            # first time; if it fails, delete Gemfile.lock (gitignored) and retry
+bundle exec jekyll serve -l -H localhost  # http://localhost:4000 with livereload
+bundle exec jekyll build                  # one-off build into _site/ (gitignored)
+docker compose up                         # serve on :4000 from a ruby:3.2 container (the Dev Container uses this too)
+npm install && npm run build:js           # regenerate assets/js/main.min.js after editing its JS sources
+```
+
+- Production-identical preview without a local Ruby (same Jekyll/Sass versions as GitHub Pages): build in the repo's Docker image with `JEKYLL_ENV=production` and an extra config that overrides the absolute site URL, then serve `_site`:
+  `docker build -t jekyll-site . && printf 'url: "http://localhost:4100"\n' > /tmp/preview.yml && docker run --rm -e JEKYLL_ENV=production -v "$PWD":/usr/src/app -v /tmp/preview.yml:/tmp/preview.yml:ro jekyll-site jekyll build --config _config.yml,/tmp/preview.yml && python3 -m http.server 4100 -d _site`
+  Links and assets are absolute (`site.url`), so the port you serve on must match the overridden URL.
+- On macOS, the README installs Ruby with Homebrew (`brew install ruby`, then `gem install bundler`) instead of using the system Ruby. If you hit gem permission errors, run `bundle config set --local path 'vendor/bundle'`.
+- `jekyll serve` does not reload `_config.yml`. Restart the server after you edit it.
+- A clean `jekyll build` is the closest thing to a test. Read its output rather than trusting the exit code: Liquid errors abort the build, but malformed YAML front matter only logs a warning and the page renders wrong. A YAML syntax error in `_data/*.yml` fails the GitHub Pages build (red run in the repo's Actions tab) and the live site keeps the previous version.
+- The README says to run `chmod -R 777 .` before `docker compose up`. That's only needed if the container user (UID 1000) can't write to the checkout. Because `core.fileMode` is on, the chmod makes git report every tracked file as modified.
+
+## Where the content lives
+
+The homepage (`/`, `_pages/about.md`, `layout: home`) is the only real page. Content is split into data files, each with a "HOW TO ADD" header and a copyable TEMPLATE (remove the leading `# ` from each template line and it is valid YAML):
+
+- `_pages/about.md`: the About paragraph only, plus one `{% include home/... %}` line per section. Its `redirect_from` also makes `/about/`, `/cv/` and `/resume` redirect to `/`.
+- `_data/experience.yml` → Work Experience timeline. Per job: `org`, `period` (contains "Present" → current dot), `role`, optional `items_label` + `items` (currently "Focus areas"), optional `earlier` (shown under "Earlier work"), optional `promotions` (`year`/`title`/`team`, newest first; the highest year gets the highlighted dot). An item is a string or `{text, papers, sub}`; `papers` lists ids from `publications.yml` and renders as linked `[N]` numbers (an unknown id renders a visible `??`).
+- `_data/publications.yml` → Publications. `highlight:` names are bolded automatically; `lead:` then `coauthor:`, numbered continuously 1..N in file order (the `[N]` references in Work Experience follow automatically). Fields: `id`, `title` (no trailing period), `url`, `authors` (`*` = equal contribution), `venue` (a venue containing "Arxiv" gets the grey badge, others blue), optional `note`, optional `links` (`label`: Paper / arXiv / Code / Model). Every link was HTTP-checked when added; don't invent links.
+- `_data/education.yml`, `_data/reviewing.yml` → Education timeline, Reviewing list.
+- `_config.yml` → `title` (masthead, `<title>`), `description`/`og_description`/`og_image` (search and link previews), and `author:` (photo `images/profile-square.jpg`, name, bio, employer, location, email, Google Scholar, LinkedIn) rendered by `_includes/home/profile.html`. Only the fields listed in the comment above `author:` appear on the homepage.
+- `_data/navigation.yml` → masthead links to the section anchors (`/#work-experience`, `/#education`, `/#publications`, `/#reviewing`).
+
+Facts on the page come from the owner (his CV plus later corrections); verify against official sources (ACL Anthology, OpenReview, PMLR, NeurIPS proceedings, arXiv) before changing titles, author lists or venues, and never publish the phone number from his CV. Keep every value double-quoted in the YAML files; an unquoted `2026: text` bullet still renders, but other slips break the build.
+
+The template's sample content is still in the repo but not published: posts and the four collections are `published: false` via `defaults:` in `_config.yml`, and the sample pages, sample PDFs, the old Markdown CV (`_pages/cv.md`) and the template tooling are in `exclude:`. Remove the matching lines there before re-enabling any of it.
+
+## How the site is assembled
+
+- **Layouts:** the homepage and the 404 page use `compress` → `default` (head, masthead `<header>`, footer, scripts) → `home` (`<main>`: `_includes/home/profile.html` sticky profile + the page content). The template's `single`/`archive` layouts and sidebar remain for other pages but are not used now.
+- **Includes:** `_includes/home/` renders each section from its data file. `inline.html` renders short Markdown strings (opens external links in a new tab with a screen-reader hint, repairs unquoted `key: value` YAML slips); `points.html` renders one labelled bullet list of a job.
+- **Liquid gotcha:** a block whose body is only whitespace renders nothing (`{% unless forloop.last %} {% endunless %}` outputs no space). Emit whitespace with an output tag (`{{ " " }}`) instead.
+- **HTML compression:** `compress.html` minifies HTML everywhere except `development`, collapsing each page onto one line, so a `//` comment in an inline `<script>` breaks only in production. The inline script in `_includes/head.html` (no-JS class, pre-paint dark theme, `screen.orientation` shim for old Safari, which `main.min.js` would otherwise crash on) is written without `//` comments.
+- **JavaScript:** `assets/js/main.min.js` is a committed bundle of `assets/js/_main.js`, `assets/js/plugins/` and vendor libraries (sources are in `exclude:`; rebuild with npm). Site-specific behavior lives in the standalone `assets/js/site-extras.js`, loaded after it with no build step: menu `aria-expanded` and closing behavior, a second greedy-nav layout pass, theme toggle `aria-pressed` and `theme-color`, reduced-motion scrolling, the masthead section highlight, and un-pinning the sticky profile when it doesn't fit.
+- **CSS:** `assets/css/main.scss` imports the `_sass/` partials (empty front matter required); homepage styles are in `_sass/layout/_home.scss`. Ruby Sass 3.7.4: no `@use`/`math.div`, and CSS `min()`/`max()`/`clamp()` get evaluated by Sass. Colors are CSS variables defined in both `_sass/theme/_default.scss` (`:root`) and `_sass/theme/_dark.scss` (`html[data-theme="dark"]`, inside `@media screen` so printouts use the light colors); add any new color to both. Anchor offsets under the fixed masthead come from `html { scroll-padding-top }` in `_sass/layout/_base.scss`.
+- **Custom snippets:** `<head>` additions go in `_includes/head/custom.html` (it already loads MathJax 3 and Academicons); footer additions in `_includes/footer/custom.html`. For internal URLs, use `{% include base_path %}` and prefix the path with `{{ base_path }}`.
+- **Plugins:** only plugins that GitHub Pages supports run in production. A new gem or a `_plugins/` directory can work in a local `serve` and then silently do nothing once deployed.
+
+## Template tooling (unused, excluded from the build)
+
+- `markdown_generator/` (TSV/BibTeX → collection Markdown; run from inside that directory), `scripts/update_cv_json.sh` (rebuilds `_data/cv.json` from `_pages/cv.md`; ends with an interactive prompt), and `talkmap.ipynb`/`talkmap.py` (geocodes `_talks/` locations).
+- `.github/workflows/scrape_talks.yml` re-runs `talkmap.ipynb` on any push that touches it and pushes a bot commit to the branch; its `talks/**` path filter never matches `_talks/`.

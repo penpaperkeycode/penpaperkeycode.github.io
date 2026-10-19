@@ -85,7 +85,7 @@
   <link rel="next" href="{{ paginator.next_page_path | prepend: seo_url }}">
 {% endif %}
 
-{% if site.social %}
+{% if site.social.links %}
   <script type="application/ld+json">
     {
       "@context" : "http://schema.org",
@@ -131,9 +131,13 @@
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
-      "@type": "Organization",
+      "@type": "Person",
+      "name": {{ site.author.name | jsonify }},
       "url": {{ seo_url | jsonify }},
-      "logo": {{ site.og_image | prepend: "/images/" | prepend: base_path | jsonify }}
+      "image": {{ site.og_image | prepend: "/images/" | prepend: base_path | jsonify }}{% if site.author.bio %},
+      "jobTitle": {{ site.author.bio | jsonify }}{% endif %}{% if site.author.employer %},
+      "worksFor": { "@type": "Organization", "name": {{ site.author.employer | jsonify }} }{% endif %}{% if site.author.googlescholar or site.author.linkedin %},
+      "sameAs": [{% if site.author.googlescholar %}{{ site.author.googlescholar | jsonify }}{% endif %}{% if site.author.googlescholar and site.author.linkedin %}, {% endif %}{% if site.author.linkedin %}{{ site.author.linkedin | prepend: "https://www.linkedin.com/in/" | jsonify }}{% endif %}]{% endif %}
     }
   </script>
 {% endif %}
@@ -142,5 +146,7 @@
   <meta property="og:image" content="{% if page.header.image contains "://" %}{{ page.header.image }}{% else %}{{ page.header.image | prepend: "/images/" | prepend: base_path }}{% endif %}">
 {% elsif page.header.overlay_image %}
   <meta property="og:image" content="{% if page.header.overlay_image contains "://" %}{{ page.header.overlay_image }}{% else %}{{ page.header.overlay_image | prepend: "/images/" | prepend: base_path }}{% endif %}">
+{% elsif site.og_image %}
+  <meta property="og:image" content="{% if site.og_image contains "://" %}{{ site.og_image }}{% else %}{{ site.og_image | prepend: "/images/" | prepend: base_path }}{% endif %}">
 {% endif %}
 <!-- end Open Graph protocol -->

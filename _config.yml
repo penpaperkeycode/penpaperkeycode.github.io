@@ -9,10 +9,10 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "The world shapes us."
+title                    : "Jeonghoon Kim"
 title_separator          : "-"
 name                     : &name "Jeonghoon Kim"
-description              : &description "Research Scientist"
+description              : &description "Research scientist and team lead at NAVER Cloud, working on large-scale foundation models."
 url                      : "https://penpaperkeycode.github.io" # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "penpaperkeycode/penpaperkeycode.github.io"
@@ -20,12 +20,15 @@ repository               : "penpaperkeycode/penpaperkeycode.github.io"
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
 #               Additional customization can be done by editing /_includes/author-profile.html
+#               The homepage profile header (_includes/home/profile.html) shows: avatar, name, pronouns,
+#               bio, employer, location, uri, email, googlescholar, semantic, orcid, arxiv, researchgate,
+#               github, linkedin, twitter, bluesky, mastodon and youtube (other fields only on other pages).
 author:
   # Biographic information
-  avatar           : "profile.jpeg"
+  avatar           : "profile-square.jpg"
   name             : "Jeonghoon Kim"
   pronouns         : # example: "she/her"  
-  bio              : "Research Scientist"
+  bio              : "Team Lead"
   location         : "South Korea"
   employer         : "NAVER Cloud"
   uri              : # URL
@@ -119,7 +122,7 @@ staticman:
       options:
         format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 atom_feed:
-  hide                   : false     # change to true to hide the RSS feed in the footer
+  hide                   : true      # change to true to hide the RSS feed in the footer
   path                   : # blank (default) uses feed.xml
 
 
@@ -137,8 +140,8 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 :  # Social media default site image
-og_description           :  # Social media default site image description
+og_image                 : "profile-square.jpg" # Social media default site image
+og_description           : "Research scientist and team lead at NAVER Cloud, working on large-scale foundation models." # Social media default site image description
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -172,6 +175,7 @@ exclude:
   - assets/js/vendor
   - CHANGELOG
   - Capfile
+  - CLAUDE.md
   - config
   - Dockerfile
   - Gemfile
@@ -186,6 +190,41 @@ exclude:
   - README
   - tmp
   - vendor
+  # Old Markdown CV, superseded by the homepage: /cv/ and /resume redirect to / through
+  # redirect_from in _pages/about.md (remove those two lines there before re-enabling this page).
+  - _pages/cv.md
+  # Template sample pages, files and tooling (kept in the repo, not published)
+  - _pages/archive-layout-with-content.md
+  - _pages/category-archive.html
+  - _pages/collection-archive.html
+  - _pages/cv-json.md
+  - _pages/markdown.md
+  - _pages/non-menu-page.md
+  - _pages/page-archive.html
+  - _pages/portfolio.html
+  - _pages/publications.html
+  - _pages/sitemap.md
+  - _pages/tag-archive.html
+  - _pages/talkmap.html
+  - _pages/talks.html
+  - _pages/teaching.html
+  - _pages/terms.md
+  - _pages/year-archive.html
+  - files/bibtex1.bib
+  - files/paper1.pdf
+  - files/paper2.pdf
+  - files/paper3.pdf
+  - files/slides1.pdf
+  - files/slides2.pdf
+  - files/slides3.pdf
+  - CONTRIBUTING.md
+  - docker-compose.yaml
+  - markdown_generator
+  - scripts
+  - talkmap
+  - talkmap.ipynb
+  - talkmap.py
+  - talkmap_out.ipynb
 keep_files:
   - .git
   - .svn
@@ -236,6 +275,7 @@ defaults:
       path: ""
       type: posts
     values:
+      published: false # template sample content, not published
       layout: single
       author_profile: true
       read_time: true
@@ -254,6 +294,7 @@ defaults:
       path: ""
       type: teaching
     values:
+      published: false # template sample content, not published
       layout: single
       author_profile: true
       share: true
@@ -263,6 +304,7 @@ defaults:
       path: ""
       type: publications
     values:
+      published: false # template sample content, not published
       layout: single
       author_profile: true
       share: true
@@ -272,6 +314,7 @@ defaults:
       path: ""
       type: portfolio
     values:
+      published: false # template sample content, not published
       layout: single
       author_profile: true
       share: true
@@ -281,6 +324,7 @@ defaults:
       path: ""
       type: talks
     values:
+      published: false # template sample content, not published
       layout: talk
       author_profile: true
       share: true
