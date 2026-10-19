@@ -1,0 +1,15 @@
+{%- comment -%}
+  "Service" section. Content lives in _data/service.yml: groups, each with a label and items.
+{%- endcomment -%}
+<section class="home-section" aria-labelledby="service">
+<h2 id="service">Service</h2>
+{%- for group in site.data.service %}
+{%- assign group_id = "service-" | append: forloop.index %}
+<h3 class="service__group" id="{{ group_id }}">{{ group.label | escape }}</h3>
+<ul class="review-list" role="list" aria-labelledby="{{ group_id }}">
+  {%- for item in group.items %}
+  <li>{% include home/inline.html text=item %}</li>
+  {%- endfor %}
+</ul>
+{%- endfor %}
+</section>

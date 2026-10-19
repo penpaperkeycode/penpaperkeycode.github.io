@@ -1,0 +1,25 @@
+# Service (homepage section, rendered by _includes/home/service.html).
+#
+# The section is a list of groups. Each group has a "label" (small heading such as REVIEWING)
+# and "items" (one line each; Markdown links are allowed and open in a new tab).
+#
+# HOW TO ADD AN ITEM
+#   Add one line under the group's "items:", starting with a dash and a space, text in double quotes:
+#       - "Conference on Language Modeling"
+#
+# HOW TO ADD A GROUP
+#   Copy a block from its "- label:" line down to the line before the next "- label:" and edit it.
+#
+# If the site stops updating after an edit, open the repository's Actions tab: a red
+# "pages build and deployment" run means a typo here (usually a missing quote or space).
+
+- label: "Reviewing"
+  items:
+    - "International Conference on Machine Learning"
+    - "Neural Information Processing Systems"
+    - "International Conference on Learning Representations"
+    - "Association for Computational Linguistics"
+
+- label: "Tech blog"
+  items:
+    - "Technical curator of the [CLOVA Tech Blog](https://clova.ai/tech-blog) (NAVER Cloud)"

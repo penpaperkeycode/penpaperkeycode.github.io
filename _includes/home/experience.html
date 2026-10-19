@@ -1,6 +1,7 @@
 {%- comment -%}
   "Work Experience" timeline. Content lives in _data/experience.yml.
   Each job shows, in this order (all but org/period optional):
+    about        one-line description of the company, under its name
     role         the line under the company name
     items_label  small heading above the bullets, e.g. "Focus areas"
     items        bullets; an item is either a plain string or {text, papers, sub}. "papers" holds
@@ -27,6 +28,9 @@
       <h3 class="timeline__title">{{ job.org | escape }}</h3>
       <p class="timeline__period">{{ job.period | escape }}</p>
     </div>
+    {%- if job.about %}
+    <p class="timeline__about">{% include home/inline.html text=job.about %}</p>
+    {%- endif -%}
     {%- if job.role %}
     <p class="timeline__role">{{ job.role | escape }}</p>
     {%- endif -%}

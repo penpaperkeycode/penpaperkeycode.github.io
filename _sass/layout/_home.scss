@@ -406,6 +406,14 @@ $tl-dot-top                 : 0.45rem; // puts the dot on the first line of the 
   white-space: nowrap;
 }
 
+/* one-line description of the company, between its name and the role */
+.timeline__about {
+  margin: 0.1rem 0 0;
+  color: var(--text-subtle);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
 .timeline__role,
 .timeline__detail {
   margin: 0.15rem 0 0;
@@ -582,7 +590,8 @@ $st-gap                     : 3px;     // space between a dot and the line
   font-size: 0.85rem;
 }
 
-.pubs__group {
+.pubs__group,
+.service__group {
   margin: 1.75rem 0 0.35rem;
   color: var(--accent);
   font-size: 0.75rem;
@@ -870,7 +879,8 @@ $st-gap                     : 3px;     // space between a dot and the line
      across pages ... */
   .home__content h2,
   .pubs__legend,
-  .pubs__group {
+  .pubs__group,
+  .service__group {
     break-after: avoid;
     page-break-after: avoid;
   }

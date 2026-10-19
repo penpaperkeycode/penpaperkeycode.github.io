@@ -3,7 +3,7 @@
 # The site title (left) links to the top of the homepage.
 # The homepage sections can be linked with "/#<section-id>":
 #   About -> /#about, Work Experience -> /#work-experience, Education -> /#education,
-#   Publications -> /#publications, Reviewing -> /#reviewing
+#   Publications -> /#publications, Service -> /#service
 # Links that do not fit on small screens move into the menu button automatically.
 
 main:
@@ -16,8 +16,8 @@ main:
   - title: "Publications"
     url: /#publications
 
-  - title: "Reviewing"
-    url: /#reviewing
+  - title: "Service"
+    url: /#service
 
   # Template pages (not published on this site; kept for reference):
   # - title: "Publications"

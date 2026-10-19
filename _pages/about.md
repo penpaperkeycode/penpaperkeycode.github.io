@@ -17,7 +17,7 @@ redirect_from:
       home/experience.html    -> _data/experience.yml    (Work Experience)
       home/education.html     -> _data/education.yml     (Education)
       home/publications.html  -> _data/publications.yml  (Publications)
-      home/reviewing.html     -> _data/reviewing.yml     (Reviewing)
+      home/service.html       -> _data/service.yml       (Service: reviewing, tech blog)
     Each data file starts with a short "HOW TO ADD" guide.
     Move or delete an include line to reorder or hide that section.
   - Masthead links: _data/navigation.yml
@@ -33,4 +33,4 @@ I am a research scientist and team lead at NAVER Cloud, working on large-scale f
 
 {% include home/publications.html %}
 
-{% include home/reviewing.html %}
+{% include home/service.html %}

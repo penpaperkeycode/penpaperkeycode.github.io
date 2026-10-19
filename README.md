@@ -2,7 +2,7 @@
 
 Source of **[Jeonghoon Kim's homepage](https://penpaperkeycode.github.io)**. Jeonghoon Kim is a research scientist and team lead at NAVER Cloud (Foundation Research) and a Ph.D. student at KAIST.
 
-The site is a single page with About, Work Experience, Education, Publications and Reviewing sections. It is built with Jekyll and served by GitHub Pages. Pushing to `master` publishes it, usually within a minute or two. There is no staging site.
+The site is a single page with About, Work Experience, Education, Publications and Service sections. It is built with Jekyll and served by GitHub Pages. Pushing to `master` publishes it, usually within a minute or two. There is no staging site.
 
 ## Editing content
 
@@ -14,7 +14,7 @@ You can edit everything in GitHub's web editor. Each data file starts with a "HO
 | Work experience: focus areas, earlier work, promotions | `_data/experience.yml` |
 | Education | `_data/education.yml` |
 | Publications | `_data/publications.yml` |
-| Reviewing | `_data/reviewing.yml` |
+| Service: reviewing, tech blog | `_data/service.yml` |
 | Site title, search and link-preview text, profile (photo, bio, links) | `_config.yml` (`title`, `description`, `og_description`, `author:`) |
 | Section links in the top bar | `_data/navigation.yml` |
 | Profile photo (square) | `images/profile-square.jpg` |

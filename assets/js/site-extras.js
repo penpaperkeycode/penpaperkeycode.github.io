@@ -102,7 +102,7 @@
    window (at most 180px, so a tall window doesn't mark Experience while About is still on top);
    nothing is marked before the visitor scrolls.
    Over the last quarter-screen of scrolling that line moves down to the bottom of the window,
-   so a short last section (Reviewing) is marked once it is on screen at the end of the page. */
+   so a short last section (Service) is marked once it is on screen at the end of the page. */
 (function () {
   var nav = document.getElementById('site-nav');
   if (!nav || !window.requestAnimationFrame || !document.documentElement.classList) { return; }
