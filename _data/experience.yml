@@ -68,7 +68,8 @@
       sub:
         - "(Early 2026) Designed the team's first mid-training stage, introduced it into model production, and established it as a process continuously applied in production."
         - "Pathfinding of HyperCLOVA X modeling (Technical Report: [2024](https://arxiv.org/abs/2404.01954), [2025](https://arxiv.org/abs/2506.22403), [2026](https://arxiv.org/abs/2601.01792))"
-    - "**Korean Expert Development** — In charge of improving the Korean-language capabilities of HyperCLOVA X."
+    - text: "**Korean Expert Development** — In charge of improving the Korean-language capabilities of HyperCLOVA X."
+      papers: [crosslingual_collapse, knowledge_weighted_ft, hallucination_future_context]
     - text: "**AudioLLM Mission** — Project Manager for the development of duplex and interaction models."
       papers: [omniacbench, parapairaudiobench, sommelier]
   earlier:
