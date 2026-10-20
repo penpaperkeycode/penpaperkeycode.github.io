@@ -1,0 +1,80 @@
+# Keeps files/Jeonghoon_Kim.pdf (the "PDF" link on the homepage) in step with the homepage.
+# After every push to master that can change the homepage, it builds the site the way GitHub
+# Pages does, prints the homepage with headless Chrome (.github/scripts/build-pdf.mjs) and
+# commits the PDF if it changed. That commit starts the usual Pages build, so the new PDF goes
+# live a minute or two after the page itself. To run it by hand: Actions tab → "Update PDF"
+# → "Run workflow".
+name: Update PDF
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "_config.yml"
+      - "_data/**"
+      - "_includes/**"
+      - "_layouts/**"
+      - "_pages/**"
+      - "_sass/**"
+      - "assets/**"
+      - "images/**"
+      - ".github/scripts/build-pdf.mjs"
+      - ".github/workflows/pdf.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: read # safeguard: jekyll-github-metadata reads the Pages settings if anything uses site.github.url
+
+concurrency:
+  group: pdf-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pdf:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PDF: files/Jeonghoon_Kim.pdf
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.ref_name }} # the branch tip, so a late run or a re-run prints the newest content
+          fetch-depth: 0 # the "Updated" date in the footer is the last commit that changed the content
+
+      - name: Build the site as GitHub Pages does
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Install the font the PDF is set in
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends fonts-inter
+
+      - name: Print the homepage to PDF
+        run: node .github/scripts/build-pdf.mjs --site _site --out "$PDF" --updated "$(git log -1 --format=%cs -- _config.yml _data _pages)"
+
+      - name: Commit the PDF if it changed
+        if: github.ref == 'refs/heads/master'
+        run: |
+          git add "$PDF"
+          if git diff --cached --quiet; then
+            echo "The PDF is already up to date."
+            exit 0
+          fi
+          printed_from=$(git rev-parse --short HEAD)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "Update PDF" -m "Printed by .github/workflows/pdf.yml from $printed_from."
+          # if master moved meanwhile (e.g. an older run pushed its PDF), keep this run's PDF: it
+          # was printed from the newest content
+          for try in 1 2 3; do
+            if git pull -q --rebase -X theirs origin master && git push -q origin HEAD:master; then
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          exit 1
