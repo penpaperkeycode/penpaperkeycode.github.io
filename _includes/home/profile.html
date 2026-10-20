@@ -1,9 +1,11 @@
 {%- comment -%}
   Homepage profile header. Everything here comes from "author:" in _config.yml
-  (photo, name, bio, employer, location and the profile links).
+  (photo, name, bio, employer, location and the profile links), except the PDF link,
+  which appears once files/Jeonghoon_Kim.pdf exists (.github/workflows/pdf.yml makes it).
 {%- endcomment -%}
 {%- include base_path -%}
 {%- assign author = site.author -%}
+{%- assign pdf_file = site.static_files | where: "path", "/files/Jeonghoon_Kim.pdf" | first -%}
 {%- if author.avatar contains "://" -%}
   {%- assign avatar_src = author.avatar -%}
 {%- else -%}
@@ -26,7 +28,7 @@
   </div>
   <ul class="profile__links" aria-label="Profile links">
     {%- if author.uri %}<li><a target="_blank" rel="noopener noreferrer" href="{{ author.uri }}"><i class="fa-solid fa-link" aria-hidden="true"></i><span>{{ site.data.ui-text[site.locale].website_label | default: "Website" }}</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
-    {%- if author.email %}<li><a target="_blank" rel="noopener noreferrer" href="mailto:{{ author.email }}"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>{{ site.data.ui-text[site.locale].email_label | default: "Email" }}</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
+    {%- if author.email %}<li><a target="_blank" rel="noopener noreferrer" href="mailto:{{ author.email }}" data-print="{{ author.email }}"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>{{ site.data.ui-text[site.locale].email_label | default: "Email" }}</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
     {%- if author.googlescholar %}<li><a target="_blank" rel="noopener noreferrer" href="{{ author.googlescholar }}"><i class="ai ai-google-scholar" aria-hidden="true"></i><span>Google Scholar</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
     {%- if author.semantic %}<li><a target="_blank" rel="noopener noreferrer" href="{{ author.semantic }}"><i class="ai ai-semantic-scholar" aria-hidden="true"></i><span>Semantic Scholar</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
     {%- if author.orcid %}<li><a target="_blank" rel="noopener noreferrer" href="{{ author.orcid }}"><i class="ai ai-orcid" aria-hidden="true"></i><span>ORCID</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
@@ -38,5 +40,6 @@
     {%- if author.bluesky %}<li><a target="_blank" rel="noopener noreferrer" href="https://bsky.app/profile/{{ author.bluesky }}"><i class="fa-brands fa-bluesky" aria-hidden="true"></i><span>Bluesky</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
     {%- if author.mastodon %}<li><a target="_blank" rel="noopener noreferrer" href="{{ author.mastodon }}"><i class="fa-brands fa-mastodon" aria-hidden="true"></i><span>Mastodon</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
     {%- if author.youtube %}<li><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@{{ author.youtube }}"><i class="fa-brands fa-youtube" aria-hidden="true"></i><span>YouTube</span><span class="screen-reader-text"> (opens in a new tab)</span></a></li>{% endif -%}
+    {%- if pdf_file %}<li class="profile__pdf"><a href="{{ base_path }}{{ pdf_file.path }}" download type="application/pdf"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>PDF</span><span class="screen-reader-text"> version of the homepage (download)</span></a></li>{% endif -%}
   </ul>
 </header>

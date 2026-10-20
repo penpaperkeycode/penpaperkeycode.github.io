@@ -17,11 +17,20 @@ You can edit everything in GitHub's web editor. Each data file starts with a "HO
 | Service: reviewing, tech blog | `_data/service.yml` |
 | Site title, search and link-preview text, profile (photo, bio, links) | `_config.yml` (`title`, `description`, `og_description`, `author:`) |
 | Section links in the top bar | `_data/navigation.yml` |
-| Profile photo (square) | `images/profile-square.jpg` |
+| Profile photo (portrait, 4:5) and link-preview image (square) | `images/profile-portrait.jpg`, `images/profile-square.jpg` |
+| PDF version of the page | made automatically, see [PDF version](#pdf-version) |
 
 - **Adding a paper:** copy an entry into `lead:` or `coauthor:` in `_data/publications.yml`. Papers are numbered automatically. To cite one from Work Experience, list its `id`, for example `papers: [peri_ln, lrq]`, and it shows up as linked `[N]` numbers.
 - **Quoting:** keep every YAML value in double quotes. Write `\"` for a quote inside a value.
-- **When the site stops updating:** open the **Actions** tab after an edit. A red "pages build and deployment" run usually means a YAML typo, and the live site keeps the previous version until you fix it.
+- **When the site stops updating:** open the **Actions** tab after an edit. A red "pages build and deployment" run usually means a YAML typo, and the live site keeps the previous version until you fix it. A red "Update PDF" run only means the PDF wasn't refreshed; the page itself still updates.
+
+## PDF version
+
+The **PDF** link in the profile downloads `files/Jeonghoon_Kim.pdf`, a print of the homepage (A4, with page numbers and an "Updated" date in the footer). You don't update it by hand. After every push that changes the homepage, the **Update PDF** workflow (`.github/workflows/pdf.yml`) builds the site, prints it with headless Chrome and commits the new PDF, which goes live a minute or two after the page. Because of that commit, run `git pull --rebase` before working in a local clone.
+
+- **Regenerate it by hand:** go to the **Actions** tab, open **Update PDF** and click **Run workflow**.
+- **Change how it looks:** the layout is the site's print stylesheet (`@media print` in `_sass/layout/_home.scss`), the same one a visitor gets when printing the page. Paper size, margins and the footer are set in `.github/scripts/build-pdf.mjs`.
+- **Print it locally** (needs Chrome and Node 18+): build the site (`bundle exec jekyll build`, or any preview build), then run `node .github/scripts/build-pdf.mjs --site _site --out /tmp/home.pdf`. The workflow sets the PDF in Inter, so a print made on macOS (San Francisco) looks slightly different.
 
 ## Local preview
 

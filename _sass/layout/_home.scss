@@ -872,19 +872,59 @@ $st-gap                     : 3px;     // space between a dot and the line
 }
 
 @media print {
-  /* the masthead and footer are not printed: drop the space the scripts keep for them */
+  /* the masthead and footer are not printed: drop the space kept for them (by the scripts,
+     and the gap above the footer, which could otherwise spill onto a blank last page) */
   body {
     padding-top: 0 !important;
+    padding-bottom: 0 !important;
     margin-bottom: 0 !important;
   }
 
+  /* the page margins already frame the text (and line it up with the PDF's footer); the
+     papers' hover bleed would stick out of the page, and Chrome would then shrink every page
+     and drop the [N] link targets from the PDF */
   #main.home {
     margin-top: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
-  /* a heading stays with what follows it, and a paper or a timeline entry is not split
-     across pages ... */
+  .pub-list {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .pub {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* contact links as plain text, with the email address spelled out for paper and pasted text */
+  .profile__links {
+    gap: 0.3rem 1.4rem;
+
+    a {
+      min-height: 0;
+      padding: 0;
+      font-weight: 500;
+      background: none;
+      border: 0;
+    }
+
+    a[data-print] > span:not(.screen-reader-text) {
+      display: none;
+    }
+
+    a[data-print]::after {
+      content: attr(data-print);
+    }
+  }
+
+  /* a heading stays with what follows it, and a paper, a bullet, the promotions or a short
+     timeline entry is not split across pages ... */
   .home__content h2,
+  .home__content .timeline__label,
+  .timeline__head,
   .pubs__legend,
   .pubs__group,
   .service__group {
@@ -894,19 +934,23 @@ $st-gap                     : 3px;     // space between a dot and the line
 
   .pub,
   .timeline__item,
-  .timeline__points li {
+  .timeline__points li,
+  .steps {
     break-inside: avoid;
     page-break-inside: avoid;
   }
 
-  /* ... except a long entry (5 or more bullets), which may continue on the next page
-     instead of leaving half a page blank */
-  .timeline__item:has(li:nth-child(5)) {
+  /* ... except an entry with labelled lists (the current job), which may continue on the
+     next page instead of leaving most of the first page blank */
+  .timeline__item:has(.timeline__label) {
     break-inside: auto;
     page-break-inside: auto;
   }
 
-  .pub__links {
+  /* not printed, and so not in the PDF that .github/scripts/build-pdf.mjs prints from these
+     styles: the paper link buttons (the titles stay links) and the PDF link itself */
+  .pub__links,
+  .profile__pdf {
     display: none;
   }
 }
