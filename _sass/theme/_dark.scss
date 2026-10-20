@@ -8,11 +8,11 @@ $dark-gray                  : mix(#000, $gray, 40%);
 $darker-gray                : mix(#000, $gray, 60%);
 $light-gray                 : mix(#fff, $gray, 50%);
 
-$background                 : #101318;
+$background                 : #121212;
 $background-light           : mix(#fff, $background, 80%);
 $background-lighter         : mix(#fff, $background, 90%);
 $text                       : #ffffff;
-$link                       : #8ab4ff;
+$link                       : #80b8ff;
 $link-dark                  : mix(#000, $link, 25%);
 $link-light                 : mix(#fff, $link, 25%);
 
@@ -34,56 +34,66 @@ $sidebar-link-max-width     : 250px;
 $sidebar-screen-min-width   : 1024px;
 
 /* Dark theme for the site (same variables as theme/_default.scss).
-   Screen only: a printout always uses the light colors of theme/_default.scss. */
+   Screen only: a printout always uses the light colors of theme/_default.scss.
+   Neutral dark grays; text uses lighter shades of the palette hues (Purple #8A3FFC is only
+   3.7:1 here), badges use dark tints of Blue and Green. The bright palette colors all reach 3:1
+   on this background, so both gradient variables use them as they are.
+   The background color is repeated in _includes/head/custom.html and assets/js/site-extras.js
+   (theme-color). */
 @media screen {
 html[data-theme="dark"] {
     color-scheme                        : dark;
 
     /* template variables */
-    --global-base-color                 : #2a2f37;
+    --global-base-color                 : #2a2a2a;
     --global-bg-color                   : #{$background};
-    --global-footer-bg-color            : #0c0e12;
-    --global-border-color               : #252a32;
-    --global-dark-border-color          : #2f353e;
-    --global-code-background-color      : #171a20;
-    --global-code-text-color            : #e6e8eb;
-    --global-fig-caption-color          : #a3abb6;
+    --global-footer-bg-color            : #0d0d0d;
+    --global-border-color               : #262626;
+    --global-dark-border-color          : #303030;
+    --global-code-background-color      : #1a1a1a;
+    --global-code-text-color            : #e6e6e6;
+    --global-fig-caption-color          : #a6a6a6;
     --global-link-color                 : #{$link};
-    --global-link-color-hover           : #b3ceff;
+    --global-link-color-hover           : #a9cfff;
     --global-link-color-visited         : #{$link};
-    --global-masthead-link-color        : #e6e8eb;
+    --global-masthead-link-color        : #e6e6e6;
     --global-masthead-link-color-hover  : #{$link};
-    --global-text-color                 : #d5d9df;
-    --global-text-color-light           : #a3abb6;
-    --global-thead-color                : #1f242c;
+    --global-text-color                 : #d4d4d4;
+    --global-text-color-light           : #a6a6a6;
+    --global-thead-color                : #1f1f1f;
 
     /* homepage refresh */
-    --text-strong                       : #f3f4f6;
-    --text-muted                        : #a3abb6;
-    --text-subtle                       : #8b939e;
-    --accent                            : #{$link};
-    --accent-strong                     : #b3ceff;
-    --accent-underline                  : rgba(138, 180, 255, 0.4);
-    --accent-weak                       : #18213a;
-    --accent-weak-border                : #263452;
-    --accent-on-weak                    : #b9d0ff;
-    --surface                           : #171a20;
-    --surface-hover                     : #151920;
-    --badge-neutral-bg                  : #1d2128;
-    --badge-neutral-border              : #2a3039;
-    --badge-neutral-text                : #c9ced6;
-    --badge-report-bg                   : #0f2420;
-    --badge-report-border               : #1d3f38;
-    --badge-report-text                 : #86d8c4;
-    --timeline-line                     : #2a3039;
-    --timeline-dot                      : #5d6673;
-    --target-bg                         : #17203a;
-    --masthead-bg                       : rgba(16, 19, 24, 0.84);
+    --text-strong                       : #f2f2f2;
+    --text-muted                        : #a6a6a6;
+    --text-subtle                       : #969696;
+    --accent                            : #{$link};   /* Blue #0086FF, lightened to 7:1 */
+    --accent-strong                     : #a9cfff;
+    --accent-underline                  : rgba(128, 184, 255, 0.4);
+    --accent-weak                       : #0f2336;
+    --accent-weak-border                : #0d3254;
+    --accent-on-weak                    : #a2cafe;
+    --surface                           : #1c1c1c;
+    --surface-hover                     : #181818;
+    --badge-neutral-bg                  : #212121;
+    --badge-neutral-border              : #2e2e2e;
+    --badge-neutral-text                : #bdbdbd;
+    --badge-report-bg                   : #0f2e1d;
+    --badge-report-border               : #0e4124;
+    --badge-report-text                 : #4cdd8c;
+    --group-label                       : #b49bff;    /* Purple, lightened to 8:1 */
+    --danger-text                       : #fd6960;   /* Red, lightened for text */
+    --timeline-line                     : #2b2b2b;
+    --timeline-dot                      : #6b6b6b;
+    --target-bg                         : #101e2a;
+    --masthead-bg                       : rgba(18, 18, 18, 0.84);
     --menu-shadow                       : rgba(0, 0, 0, 0.5);
     --avatar-ring                       : rgba(255, 255, 255, 0.08);
     --avatar-shadow                     : rgba(0, 0, 0, 0.4);
-    --focus-ring                        : #{$link};
-    --selection-bg                      : #263452;
-    --selection-text                    : #f3f4f6;
-}}
+    --focus-ring                        : #0086ff;    /* Blue, as is (5.2:1) */
+    --selection-bg                      : #0d3559;
+    --selection-text                    : #f2f2f2;
 
+    /* signature gradient stops (see theme/_default.scss) */
+    --signature-stops                   : #00cf5a, #0086ff, #8a3ffc;
+    --signature-stops-ui                : #00cf5a 15%, #0086ff, #8a3ffc 85%;
+}}

@@ -14,7 +14,7 @@
 #   authors  author list as it should appear; "*" marks equal contribution.
 #            Names listed under "highlight:" below are shown in bold automatically.
 #   venue    e.g. "ICML 2025" or "Arxiv (preprint, 2025)". Venues containing "Technical report"
-#            get a teal badge, other venues containing "Arxiv" a grey one, all others blue.
+#            get a green badge, other venues containing "Arxiv" a grey one, all others blue.
 #   corresponding  (optional) true when Jeonghoon Kim is a (co-)corresponding author of a
 #            co-author paper; a † is shown after his name (legend: †corresponding author).
 #            Not used for first / co-first author papers (lead:), by choice.

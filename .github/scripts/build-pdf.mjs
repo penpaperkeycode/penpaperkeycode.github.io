@@ -256,7 +256,7 @@ async function main() {
 
   const updated = opt.updated ? `Updated ${escapeHtml(formatDate(opt.updated))} · ` : '';
   const footer = `<div style="box-sizing: border-box; width: 100%; padding: 0 ${MARGIN.marginLeft}in;
-      display: flex; justify-content: space-between; gap: 1em; color: #626b77;
+      display: flex; justify-content: space-between; gap: 1em; color: #6b6b6b;
       font-family: ${FONT}; font-size: 7.5pt;">
     <span><span class="title"></span> · ${escapeHtml(HOME.host)}</span>
     <span>${updated}<span class="pageNumber"></span> / <span class="totalPages"></span></span>

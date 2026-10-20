@@ -291,7 +291,7 @@
           right: 0.65rem;
           bottom: calc((100% - #{$masthead-height}) / 2);
           height: 2px;
-          background: var(--accent);
+          background: linear-gradient(90deg, var(--signature-stops-ui));
           border-radius: 2px 2px 0 0;
         }
       }

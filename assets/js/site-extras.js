@@ -19,7 +19,7 @@
     var dark = document.documentElement.getAttribute('data-theme') === 'dark';
     if (toggle) { toggle.setAttribute('aria-pressed', dark ? 'true' : 'false'); }
     for (var i = 0; i < metas.length; i++) {
-      metas[i].setAttribute('content', dark ? '#101318' : '#ffffff');
+      metas[i].setAttribute('content', dark ? '#121212' : '#ffffff');
     }
   }
   syncTheme();

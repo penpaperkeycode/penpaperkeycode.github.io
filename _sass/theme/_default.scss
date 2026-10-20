@@ -28,54 +28,71 @@ $sidebar-screen-min-width   : 1024px;
 
 /* Default light theme for the site.
    Every color used by the site is a variable here AND in theme/_dark.scss.
-   Text colors were checked for WCAG AA contrast on the backgrounds they are used on. */
+   Text colors were checked for WCAG AA contrast on the backgrounds they are used on.
+
+   Palette: a neutral page (pure grays, the hue of Gray #B0B0B0 / Light Gray #EEEEEE) with one
+   signature, the Green #00CF5A -> Blue #0086FF -> Purple #8A3FFC gradient, in three small places:
+   the bar along the top of the masthead, the current timeline dots and the masthead's
+   active-section bar (--signature-stops*). The bright palette colors are too light for text on
+   white (only Purple passes 4.5:1), so text uses darker shades of the same hues; the venue,
+   technical-report and preprint badges use the palette's Light Blue, Light Green and Light Gray. */
 :root {
     color-scheme                        : light;
 
     /* template variables */
-    --global-base-color                 : #{$gray};
+    --global-base-color                 : #7a7a7a;
     --global-bg-color                   : #ffffff;
-    --global-footer-bg-color            : #f7f8fa;
-    --global-border-color               : #e4e7eb;
-    --global-dark-border-color          : #d3d8de;
-    --global-code-background-color      : #f6f7f9;
-    --global-code-text-color            : #1f2328;
-    --global-fig-caption-color          : #5b6470;
-    --global-link-color                 : #2453c8;
-    --global-link-color-hover           : #1b3f9e;
-    --global-link-color-visited         : #2453c8;
-    --global-masthead-link-color        : #1f2328;
-    --global-masthead-link-color-hover  : #2453c8;
-    --global-text-color                 : #2b3036;
-    --global-text-color-light           : #5b6470;
-    --global-thead-color                : #f1f3f5;
+    --global-footer-bg-color            : #f7f7f7;
+    --global-border-color               : #e6e6e6;
+    --global-dark-border-color          : #d4d4d4;
+    --global-code-background-color      : #f6f6f6;
+    --global-code-text-color            : #1f1f1f;
+    --global-fig-caption-color          : #5c5c5c;
+    --global-link-color                 : #0168c8;
+    --global-link-color-hover           : #0258ab;
+    --global-link-color-visited         : #0168c8;
+    --global-masthead-link-color        : #1f1f1f;
+    --global-masthead-link-color-hover  : #0168c8;
+    --global-text-color                 : #2e2e2e;
+    --global-text-color-light           : #5c5c5c;
+    --global-thead-color                : #f2f2f2;
 
     /* homepage refresh */
-    --text-strong                       : #14171b;
-    --text-muted                        : #5b6470;
-    --text-subtle                       : #626b77;
-    --accent                            : #2453c8;
-    --accent-strong                     : #1b3f9e;
-    --accent-underline                  : rgba(36, 83, 200, 0.35);
-    --accent-weak                       : #edf2fd;
-    --accent-weak-border                : #d5e0fa;
-    --accent-on-weak                    : #1d47b0;
-    --surface                           : #f6f7f9;
-    --surface-hover                     : #f5f7fa;
-    --badge-neutral-bg                  : #f1f3f5;
-    --badge-neutral-border              : #e1e5ea;
-    --badge-neutral-text                : #4b5563;
-    --badge-report-bg                   : #e8f5f2;
-    --badge-report-border               : #c5e6de;
-    --badge-report-text                 : #0b6655;
-    --timeline-line                     : #e1e5ea;
-    --timeline-dot                      : #8c95a1;
-    --target-bg                         : #f1f5fe;
+    --text-strong                       : #161616;
+    --text-muted                        : #5c5c5c;
+    --text-subtle                       : #6b6b6b;
+    --accent                            : #0168c8;   /* Blue #0086FF, darkened to 5.5:1 for text */
+    --accent-strong                     : #0258ab;
+    --accent-underline                  : rgba(1, 104, 200, 0.38);
+    --accent-weak                       : #e2f0ff;   /* Light Blue: venue badges, hovers, dot halo */
+    --accent-weak-border                : #cbe5ff;
+    --accent-on-weak                    : #075eb5;
+    --surface                           : #f5f5f5;
+    --surface-hover                     : #f7f7f7;
+    --badge-neutral-bg                  : #eeeeee;   /* Light Gray: preprint badges */
+    --badge-neutral-border              : #e0e0e0;
+    --badge-neutral-text                : #555555;
+    --badge-report-bg                   : #e0f8eb;   /* Light Green: technical-report badges */
+    --badge-report-border               : #caf4dc;
+    --badge-report-text                 : #06712f;
+    --group-label                       : #8a3ffc;   /* Purple, as is (5.0:1): "Lead author", "Reviewing" */
+    --danger-text                       : #de0f22;   /* Red, darkened for text: an unknown paper id */
+    --timeline-line                     : #e3e3e3;
+    --timeline-dot                      : #8f8f8f;
+    --target-bg                         : #f0f8ff;
     --masthead-bg                       : rgba(255, 255, 255, 0.88);
-    --menu-shadow                       : rgba(16, 24, 40, 0.12);
-    --avatar-ring                       : rgba(20, 23, 27, 0.08);
-    --avatar-shadow                     : rgba(16, 24, 40, 0.10);
-    --focus-ring                        : #2453c8;
-    --selection-bg                      : #d5e0fa;
-    --selection-text                    : #14171b;
+    --menu-shadow                       : rgba(0, 0, 0, 0.12);
+    --avatar-ring                       : rgba(0, 0, 0, 0.08);
+    --avatar-shadow                     : rgba(0, 0, 0, 0.10);
+    --focus-ring                        : #0086ff;   /* Blue, as is (3.6:1, UI graphic) */
+    --selection-bg                      : #cce7ff;
+    --selection-text                    : #161616;
+
+    /* the signature gradient's color stops, used as linear-gradient(<angle>, var(--signature-stops)).
+       --signature-stops: the palette colors, decoration only (masthead bar).
+       --signature-stops-ui: every stop >= 3:1 on the page (current dots, active-section bar),
+       so Green is a shade darker here; the 15% / 85% positions keep all three colors inside a
+       round dot (a 135deg gradient's corners fall outside the circle). */
+    --signature-stops                   : #00cf5a, #0086ff, #8a3ffc;
+    --signature-stops-ui                : #0a9944 15%, #0086ff, #8a3ffc 85%;
 }

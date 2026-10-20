@@ -16,6 +16,17 @@
           animation-delay: 0.15s;
   z-index: 20;
 
+  /* brand bar along the top edge: the signature gradient (decoration only) */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--signature-stops));
+  }
+
   &::after {
     content: "";
     position: absolute;

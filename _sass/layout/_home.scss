@@ -376,9 +376,11 @@ $tl-dot-top                 : 0.45rem; // puts the dot on the first line of the 
     border-radius: 50%;
   }
 
+  /* current job: the signature gradient, sized to the whole dot ("border-box"; the default
+     padding box would repeat it into the transparent border) */
   &.is-current::after {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: linear-gradient(135deg, var(--signature-stops-ui)) border-box;
+    border-color: transparent;
     box-shadow: 0 0 0 4px var(--accent-weak);
   }
 }
@@ -530,8 +532,8 @@ $st-gap                     : 3px;     // space between a dot and the line
 
   /* newest role of a current job: same look as the current job's dot, smaller */
   &.is-current::after {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: linear-gradient(135deg, var(--signature-stops-ui)) border-box;
+    border-color: transparent;
     box-shadow: 0 0 0 3px var(--accent-weak);
   }
 }
@@ -593,7 +595,7 @@ $st-gap                     : 3px;     // space between a dot and the line
 .pubs__group,
 .service__group {
   margin: 1.75rem 0 0.35rem;
-  color: var(--accent);
+  color: var(--group-label);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.09em;
@@ -867,7 +869,7 @@ $st-gap                     : 3px;     // space between a dot and the line
 
 /* an unknown paper id in _data/experience.yml shows up instead of silently disappearing */
 .xref-missing {
-  color: var(--accent);
+  color: var(--danger-text);
   font-weight: 700;
 }
 
