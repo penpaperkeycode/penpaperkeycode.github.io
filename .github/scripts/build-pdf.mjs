@@ -100,8 +100,6 @@ const chromeArgs = [
 ];
 // GitHub's Ubuntu runners don't allow Chrome's sandbox; the page is our own, other requests are blocked
 if (process.platform === 'linux' && process.env.CI) chromeArgs.push('--no-sandbox');
-// Linux font hinting snaps each line to whole pixels, which makes line spacing slightly uneven
-if (process.platform === 'linux') chromeArgs.push('--font-render-hinting=none');
 
 let chrome;
 let running = false;
