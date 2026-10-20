@@ -3,7 +3,9 @@
 # HOW TO ADD A BULLET
 #   Add a line under the job's "items:", indented like the others:
 #       - "2026: Short description of the milestone."
-#   Text may contain Markdown: **bold** and links such as [2024](https://arxiv.org/abs/2404.01954)
+#   Text may contain Markdown: **bold** and links such as [NAVER](https://www.navercorp.com/en)
+#   To link a word to a paper in the Publications list, use the paper's id after #pub:
+#   [2024](#pub:hcx_tr) becomes a link to that paper's current number (an unknown id shows ??).
 #
 #   To cite papers from _data/publications.yml, use the two-line form instead
 #   ("papers" lists paper ids; they are shown as linked numbers such as [1, 2, 3]):
@@ -67,7 +69,7 @@
       papers: [unigram_lens, peri_ln, vocab_imbalance]
       sub:
         - "(Early 2026) Designed the team's first mid-training stage, introduced it into model production, and established it as a process continuously applied in production."
-        - "Pathfinding of HyperCLOVA X modeling (Technical Report: [2024](https://arxiv.org/abs/2404.01954), [2025](https://arxiv.org/abs/2506.22403), [2026](https://arxiv.org/abs/2601.01792))"
+        - "Pathfinding of HyperCLOVA X modeling (Technical Report: [2024](#pub:hcx_tr), [2025](#pub:hcx_think), [2026](#pub:hcx_8b_omni))"
     - text: "**Korean Expert Development** — In charge of improving the Korean-language capabilities of HyperCLOVA X."
       papers: [crosslingual_collapse, codeswitch_rlvr, knowledge_weighted_ft, hallucination_future_context]
     - text: "**AudioLLM Mission** — Project Manager for the development of duplex and interaction models."

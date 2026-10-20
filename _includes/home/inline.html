@@ -2,10 +2,37 @@
   Renders one short Markdown string inline (no <p> wrapper) and opens its external links
   in a new tab. A YAML slip such as   - 2026: Promoted ...   (missing double quotes) arrives
   here as a one-entry hash; it is turned back into "2026: Promoted ..." instead of {2026=>...}.
+  A link to a paper in Publications is written with its id from _data/publications.yml,
+  [2024](#pub:hcx_tr), and becomes a link to that paper's current number (#pub-21); an
+  unknown id shows a visible "??".
   Usage: {% include home/inline.html text=some_value %}
 {%- endcomment -%}
 {%- assign raw = include.text -%}
 {%- assign pair = raw | first -%}
 {%- if raw.text == nil and pair and pair.size == 2 -%}{%- capture raw -%}{{ pair[0] }}: {{ pair[1] }}{%- endcapture -%}{%- endif -%}
+{%- assign xref_unknown = false -%}
+{%- if raw contains "(#pub:" -%}
+  {%- assign xref_none = "" | split: "," -%}
+  {%- assign xref_lead = site.data.publications.lead | default: xref_none -%}
+  {%- assign xref_co = site.data.publications.coauthor | default: xref_none -%}
+  {%- assign xref_pubs = xref_lead | concat: xref_co -%}
+  {%- for xref_pub in xref_pubs -%}
+    {%- capture xref_from -%}(#pub:{{ xref_pub.id }}){%- endcapture -%}
+    {%- capture xref_to -%}(#pub-{{ forloop.index }}){%- endcapture -%}
+    {%- assign raw = raw | replace: xref_from, xref_to -%}
+  {%- endfor -%}
+  {%- if raw contains "(#pub:" -%}{%- assign xref_unknown = true -%}{%- endif -%}
+{%- endif -%}
 {%- capture newtab -%}<span class="screen-reader-text"> (opens in a new tab)</span></a>{%- endcapture -%}
-{{- raw | markdownify | remove: "<p>" | remove: "</p>" | strip | replace: '<a href="http', '<a target="_blank" rel="noopener noreferrer" href="http' | replace: '</a>', newtab -}}
+{%- assign html = raw | markdownify | remove: "<p>" | remove: "</p>" | strip -%}
+{%- assign link_parts = html | split: '<a href="' -%}
+{{- link_parts[0] -}}
+{%- for link_part in link_parts offset: 1 -%}
+  {%- assign link_head = link_part | slice: 0, 4 -%}
+  {%- if link_head == "http" -%}
+    <a target="_blank" rel="noopener noreferrer" href="{{ link_part | replace_first: '</a>', newtab }}
+  {%- else -%}
+    <a href="{{ link_part }}
+  {%- endif -%}
+{%- endfor -%}
+{%- if xref_unknown -%}<span class="xref-missing" title="Unknown paper id in a #pub: link">??</span>{%- endif -%}
