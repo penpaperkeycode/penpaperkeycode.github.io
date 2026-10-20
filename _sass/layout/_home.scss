@@ -226,6 +226,18 @@ $tl-dot-top                 : 0.45rem; // puts the dot on the first line of the 
     }
   }
 
+  /* phones: an even two-column grid, instead of a row that leaves one button on a line of its own */
+  @include breakpoint(max-width ($small - 1px)) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+
+    a {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
   @include breakpoint($home-two-col) {
     display: block;
     margin-top: 1.25rem;
@@ -873,6 +885,65 @@ $st-gap                     : 3px;     // space between a dot and the line
   font-weight: 700;
 }
 
+/* "Email address copied" notice, shown by assets/js/site-extras.js when the email link is used */
+.copy-toast {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 1.5rem;
+  bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: -webkit-max-content;
+  width: max-content;
+  max-width: calc(100vw - 2rem);
+  margin: 0 auto;
+  padding: 0.7rem 1.15rem 0.7rem 0.95rem;
+  color: var(--toast-text);
+  line-height: 1.3;
+  background: var(--toast-bg);
+  border-radius: 14px;
+  box-shadow: 0 12px 28px -12px var(--menu-shadow);
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: translateY(0.5rem);
+          transform: translateY(0.5rem);
+  -webkit-transition: opacity 0.18s ease, -webkit-transform 0.18s ease;
+          transition: opacity 0.18s ease, transform 0.18s ease;
+
+  &.is-visible {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+
+  i {
+    color: var(--toast-icon);
+  }
+
+  strong {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  span {
+    display: block;
+    color: var(--toast-subtle);
+    font-size: 0.8rem;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copy-toast {
+    -webkit-transition: none;
+            transition: none;
+  }
+}
+
 @media print {
   /* the masthead and footer are not printed: drop the space kept for them (by the scripts,
      and the gap above the footer, which could otherwise spill onto a blank last page) */
@@ -952,7 +1023,8 @@ $st-gap                     : 3px;     // space between a dot and the line
   /* not printed, and so not in the PDF that .github/scripts/build-pdf.mjs prints from these
      styles: the paper link buttons (the titles stay links) and the PDF link itself */
   .pub__links,
-  .profile__pdf {
+  .profile__pdf,
+  .copy-toast {
     display: none;
   }
 }

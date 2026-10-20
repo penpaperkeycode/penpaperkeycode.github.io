@@ -45,7 +45,7 @@ Without a local Ruby, run `docker compose up` (http://localhost:4000). GitHub Pa
 
 - **Layout:** `_layouts/home.html` is the homepage layout (sticky profile plus content). `_includes/home/` has one include per section.
 - **Styles:** homepage styles are in `_sass/layout/_home.scss`. Colors are CSS variables defined for both themes in `_sass/theme/_default.scss` (light) and `_sass/theme/_dark.scss` (dark).
-- **Scripts:** `assets/js/site-extras.js` holds small enhancements: menu behavior, theme toggle state and the current-section highlight. `assets/js/main.min.js` is the template's prebuilt bundle; rebuild it with `npm install && npm run build:js` after editing `assets/js/_main.js` or `assets/js/plugins/`.
+- **Scripts:** `assets/js/site-extras.js` holds small enhancements: menu behavior (on phones every section link is in the menu), theme toggle state, the current-section highlight, and copying the email address when its link is clicked. `assets/js/main.min.js` is the template's prebuilt bundle; rebuild it with `npm install && npm run build:js` after editing `assets/js/_main.js` or `assets/js/plugins/`.
 
 ## Credits
 

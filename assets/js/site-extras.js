@@ -3,9 +3,11 @@
    - theme toggle: exposes its state (aria-pressed) and keeps the browser's theme-color in sync,
    - masthead menu: keeps aria-expanded in sync; closes the menu after a link is chosen, on Escape,
      on an outside tap, or when keyboard focus leaves it; re-runs the greedy-nav layout once more
-     because its first pass ignores the width of the menu button,
+     because its first pass ignores the width of the menu button; on phones puts every section
+     link in the menu,
    - un-pins the sticky profile when it does not fit in the window,
-   - marks the masthead link of the homepage section in view (class "is-active"). */
+   - marks the masthead link of the homepage section in view (class "is-active"),
+   - the profile's email link copies the address and says so, instead of opening a mail app. */
 (function () {
   if (window.jQuery && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     window.jQuery.fx.off = true;
@@ -78,9 +80,28 @@
     if (isOpen() && event.relatedTarget && !nav.contains(event.relatedTarget)) { close(); }
   });
 
+  /* On a phone every section link goes in the menu; the greedy layout would leave one link
+     squeezed next to the button. window.breaks is the greedy-nav plugin's list of the widths at
+     which it moved links, which it uses to bring them back on a wider screen. */
+  var visible = nav.querySelector('.visible-links');
+  var phone = window.matchMedia ? window.matchMedia('(max-width: 599px)') : null;
+  function tuck() {
+    if (!phone || !phone.matches || !visible || !Array.isArray(window.breaks)) { return; }
+    var items = visible.querySelectorAll('li:not(.persist)');
+    for (var i = items.length - 1; i >= 0; i--) {
+      window.breaks.push(window.jQuery ? window.jQuery(visible).width() : visible.offsetWidth);
+      menu.insertBefore(items[i], menu.firstChild);
+    }
+    if (items.length) {
+      button.classList.remove('hidden');
+      button.setAttribute('count', window.breaks.length);
+    }
+  }
+
   if (typeof window.updateNav === 'function') {
     window.updateNav();
-    window.addEventListener('resize', function () { window.updateNav(); });
+    tuck();
+    window.addEventListener('resize', function () { window.updateNav(); tuck(); });
   }
 })();
 
@@ -171,4 +192,67 @@
   window.addEventListener('resize', queue);
   window.addEventListener('load', queue);
   update();
+})();
+
+/* Email: a click (or Enter) on the profile's email link copies the address and shows
+   "Email address copied", instead of opening a mail app. With a modifier key held, or when
+   copying fails, it opens the mail app as before; without JavaScript it is a plain mailto: link. */
+(function () {
+  var links = document.querySelectorAll('.profile__links a[href^="mailto:"]');
+  if (!links.length || !window.Promise) { return; }
+
+  var toast = document.createElement('div');
+  toast.className = 'copy-toast';
+  toast.setAttribute('role', 'status');
+  document.body.appendChild(toast);
+  var timer = null;
+
+  function show(address) {
+    toast.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i>' +
+      '<div><strong>Email address copied</strong><span></span></div>';
+    toast.querySelector('span').textContent = address;
+    toast.classList.remove('is-visible');
+    void toast.offsetWidth; /* restart the fade-in on a second click */
+    toast.classList.add('is-visible');
+    clearTimeout(timer);
+    timer = setTimeout(function () { toast.classList.remove('is-visible'); }, 2600);
+  }
+
+  /* the older way, for browsers without the async clipboard API (or when it refuses) */
+  function copyBySelection(text) {
+    var area = document.createElement('textarea');
+    area.value = text;
+    area.setAttribute('readonly', '');
+    area.style.position = 'fixed';
+    area.style.top = '-1000px';
+    area.style.opacity = '0';
+    document.body.appendChild(area);
+    area.select();
+    area.setSelectionRange(0, text.length);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(area);
+    return ok;
+  }
+
+  function copy(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext) {
+      return navigator.clipboard.writeText(text).catch(function () {
+        if (!copyBySelection(text)) { throw new Error('copy failed'); }
+      });
+    }
+    return copyBySelection(text) ? Promise.resolve() : Promise.reject(new Error('copy failed'));
+  }
+
+  Array.prototype.forEach.call(links, function (link) {
+    var address = decodeURIComponent(link.getAttribute('href').slice(7).split('?')[0]);
+    var hint = link.querySelector('.screen-reader-text');
+    if (hint) { hint.textContent = ' (copies the address)'; }
+    link.removeAttribute('target');
+    link.addEventListener('click', function (event) {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) { return; }
+      event.preventDefault();
+      copy(address).then(function () { show(address); }, function () { window.location.href = link.href; });
+    });
+  });
 })();

@@ -87,6 +87,10 @@ $sidebar-screen-min-width   : 1024px;
     --focus-ring                        : #0086ff;   /* Blue, as is (3.6:1, UI graphic) */
     --selection-bg                      : #cce7ff;
     --selection-text                    : #161616;
+    --toast-bg                          : #161616;   /* "Email address copied": inverted colors */
+    --toast-text                        : #ffffff;   /* 18.1:1 */
+    --toast-subtle                      : #c4c4c4;   /* 10.4:1 */
+    --toast-icon                        : #4cdd8c;   /* Green, lightened (10.4:1) */
 
     /* the signature gradient's color stops, used as linear-gradient(<angle>, var(--signature-stops)).
        --signature-stops: the palette colors, decoration only (masthead bar).

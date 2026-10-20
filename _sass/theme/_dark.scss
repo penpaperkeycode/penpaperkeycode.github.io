@@ -92,6 +92,10 @@ html[data-theme="dark"] {
     --focus-ring                        : #0086ff;    /* Blue, as is (5.2:1) */
     --selection-bg                      : #0d3559;
     --selection-text                    : #f2f2f2;
+    --toast-bg                          : #f2f2f2;
+    --toast-text                        : #121212;    /* 16.7:1 */
+    --toast-subtle                      : #555555;    /* 6.7:1 */
+    --toast-icon                        : #06712f;    /* Green, darkened (5.5:1) */
 
     /* signature gradient stops (see theme/_default.scss) */
     --signature-stops                   : #00cf5a, #0086ff, #8a3ffc;
