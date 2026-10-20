@@ -11,7 +11,7 @@
 {%- assign n = 0 -%}
 <section class="home-section pubs" aria-labelledby="publications">
 <h2 id="publications">Publications</h2>
-<p class="pubs__legend">*equal contribution</p>
+<p class="pubs__legend">*equal contribution &nbsp;·&nbsp; †corresponding author</p>
 {%- for group in groups -%}
   {%- assign papers = pubdata[group] | default: no_list -%}
   {%- if papers.size > 0 %}
@@ -30,6 +30,10 @@
             {%- capture strong_name %}<strong class="pub__me">{{ name_html }}</strong>{% endcapture -%}
             {%- assign author_html = author_html | replace: name_html, strong_name -%}
           {%- endfor -%}
+          {%- assign plain = author | strip | remove: "*" | strip -%}
+          {%- if pub.corresponding and plain == site.author.name -%}
+            {%- capture author_html %}{{ author_html }}<span class="pub__corr" aria-hidden="true">†</span><span class="screen-reader-text"> (corresponding author)</span>{% endcapture -%}
+          {%- endif -%}
           <span{% if author.size < 40 %} class="pub__author"{% endif %}>{{ author_html }}</span>{% unless forloop.last %}, {% endunless %}
         {%- endfor -%}
       {%- endcapture %}
@@ -37,7 +41,7 @@
       <span class="pub__num">{{ n }}</span>
       <div class="pub__body">
         <div class="pub__meta">
-          <span class="pub__venue{% if venue_key contains 'arxiv' %} pub__venue--preprint{% endif %}">{{ pub.venue | escape }}</span>
+          <span class="pub__venue{% if venue_key contains 'technical report' %} pub__venue--report{% elsif venue_key contains 'arxiv' %} pub__venue--preprint{% endif %}">{{ pub.venue | escape }}</span>
           {% if pub.note %}<span class="pub__note">{{ pub.note | escape }}</span>{% endif %}
         </div>
         <p class="pub__title">{% if pub.url %}<a href="{{ pub.url }}" target="_blank" rel="noopener noreferrer">{{ pub.title | escape }}<span class="screen-reader-text"> (opens in a new tab)</span></a>{% else %}{{ pub.title | escape }}{% endif %}</p>

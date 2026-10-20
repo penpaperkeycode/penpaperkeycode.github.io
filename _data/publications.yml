@@ -13,8 +13,11 @@
 #   url      link opened by the title (the official paper page if there is one, else arXiv)
 #   authors  author list as it should appear; "*" marks equal contribution.
 #            Names listed under "highlight:" below are shown in bold automatically.
-#   venue    e.g. "ICML 2025" or "Arxiv (preprint, 2025)". Venues containing "Arxiv"
-#            get a grey badge, all others a blue one.
+#   venue    e.g. "ICML 2025" or "Arxiv (preprint, 2025)". Venues containing "Technical report"
+#            get a teal badge, other venues containing "Arxiv" a grey one, all others blue.
+#   corresponding  (optional) true when Jeonghoon Kim is a (co-)corresponding author of a
+#            co-author paper; a † is shown after his name (legend: †corresponding author).
+#            Not used for first / co-first author papers (lead:), by choice.
 #   note     (optional) short remark shown next to the venue, e.g. "Corresponding author."
 #   links    (optional) buttons shown under the authors, each with a label and a url.
 #            Use the labels "Paper", "arXiv", "Code" or "Model":
@@ -161,6 +164,16 @@ coauthor:
       - label: "arXiv"
         url: "https://arxiv.org/abs/2601.03286"
 
+  - id: codeswitch_rlvr
+    title: "From Unverifiable Domain Text to Cross-Lingual RLVR via Code-Switched Task Synthesis"
+    url: "https://arxiv.org/abs/2610.25399"
+    authors: "Cheonbok Park*, Jihwan Kim*, Shinyoung Joo, Joosung Lee, Hwiyeol Jo, Jeonghoon Kim, Jaegul Choo"
+    venue: "EMNLP 2026"
+    corresponding: true
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2610.25399"
+
   - id: omniacbench
     title: "OmniACBench: A Benchmark for Evaluating Context-Grounded Acoustic Control in Omni-Modal Models"
     url: "https://arxiv.org/abs/2603.23938"
@@ -175,6 +188,7 @@ coauthor:
     url: "https://arxiv.org/abs/2604.05779"
     authors: "Joosung Lee, Hwiyeol Jo, Donghyeon Ko, Kyubyung Chae, Cheonbok Park, Jeonghoon Kim"
     venue: "Findings of EMNLP 2026"
+    corresponding: true
     links:
       - label: "arXiv"
         url: "https://arxiv.org/abs/2604.05779"
@@ -206,7 +220,7 @@ coauthor:
     url: "https://aclanthology.org/2026.findings-acl.1872/"
     authors: "Juyong Jiang, Jiasi Shen, Sunghun Kim, Kang Min Yoo, Jeonghoon Kim, Sungju Kim"
     venue: "Findings of ACL 2026"
-    note: "Co-corresponding author."
+    corresponding: true
     links:
       - label: "Paper"
         url: "https://aclanthology.org/2026.findings-acl.1872/"

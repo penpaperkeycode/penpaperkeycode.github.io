@@ -99,7 +99,7 @@ $tl-dot-top                 : 0.45rem; // puts the dot on the first line of the 
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 1;
+    aspect-ratio: unquote("4 / 5"); /* portrait; images/profile-portrait.jpg is 800x1000 */
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 0 0 1px var(--avatar-ring), 0 10px 24px -14px var(--avatar-shadow);
@@ -658,6 +658,13 @@ $st-gap                     : 3px;     // space between a dot and the line
   background: var(--accent-weak);
   border: 1px solid var(--accent-weak-border);
   border-radius: 6px;
+
+  /* technical reports (venue text contains "technical report") */
+  &--report {
+    color: var(--badge-report-text);
+    background: var(--badge-report-bg);
+    border-color: var(--badge-report-border);
+  }
 
   &--preprint {
     color: var(--badge-neutral-text);
