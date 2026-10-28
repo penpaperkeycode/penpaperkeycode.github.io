@@ -59,7 +59,7 @@ lead:
     links:
       - label: "Paper"
         url: "https://neurips.cc/virtual/2026/poster/155069"
-      - label: "arXiv (earlier version)"
+      - label: "arXiv"
         url: "https://arxiv.org/abs/2602.10657"
 
   - id: peri_ln
