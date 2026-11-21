@@ -53,7 +53,7 @@ highlight:
 lead:
   - id: unigram_lens
     title: "The Lexical Imprint of Pre-training Data"
-    url: "https://neurips.cc/virtual/2026/poster/155069"
+    url: "https://arxiv.org/abs/2602.10657"
     authors: "Jeonghoon Kim*, Woojin Chung*, Woomin Song, Cheonbok Park, Nako Sung, Jinwoo Shin"
     venue: "NeurIPS 2026"
     links:
